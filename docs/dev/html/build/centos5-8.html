@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Centos 5.8 &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="../index.html" />
+    <link rel="up" title="Installing" href="../install.html" />
+    <link rel="next" title="How to report a bug" href="../how_to_report_a_bug.html" />
+    <link rel="prev" title="Fedora" href="fedora.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../how_to_report_a_bug.html" title="How to report a bug"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="fedora.html" title="Fedora"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="../install.html" accesskey="U">Installing</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="centos-5-8">
+<h1>Centos 5.8<a class="headerlink" href="#centos-5-8" title="Permalink to this headline">¶</a></h1>
+<p>A version of Boost &gt;= 1.39 must be installed.</p>
+<ol class="arabic simple">
+<li>Download epel-release-5-4.noarch.rpm (or suitable version) from <a class="reference external" href="http://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F">http://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F</a></li>
+<li>Install the EPEL repo list using &#8220;rpm -Uvh epel-release-5-4.noarch.rpm&#8221;</li>
+<li>yum install boost141-devel</li>
+<li>ln -s /usr/include/boost141/boost/ /usr/include/boost</li>
+<li>export LDFLAGS=&#8221;-L/usr/lib64/boost141&#8221;</li>
+<li>export LD_LIBRARY_PATH=/usr/lib64/boost141:$LD_LIBRARY_PATH</li>
+<li>sudo yum install e2fsprogs-devel e2fsprogs</li>
+</ol>
+<p>Then:</p>
+<ol class="arabic simple">
+<li>yum install gcc44 gcc-c++</li>
+<li>export CC=&#8221;gcc44&#8221;</li>
+<li>export CXX=&#8221;g++44&#8221;</li>
+</ol>
+<p>Compile and install:</p>
+<p>./configure</p>
+<p>make</p>
+<p>sudo make install</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fedora.html"
+                        title="previous chapter">Fedora</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../how_to_report_a_bug.html"
+                        title="next chapter">How to report a bug</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../how_to_report_a_bug.html" title="How to report a bug"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="fedora.html" title="Fedora"
+             >previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="../install.html" >Installing</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Having Gearman work with SSL. &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="../index.html" />
+    <link rel="next" title="Gearman Command Line Tool" href="../bin/gearman.html" />
+    <link rel="prev" title="SQLite" href="queues/sqlite.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../bin/gearman.html" title="Gearman Command Line Tool"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="queues/sqlite.html" title="SQLite"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="having-gearman-work-with-ssl">
+<h1>Having Gearman work with SSL.<a class="headerlink" href="#having-gearman-work-with-ssl" title="Permalink to this headline">¶</a></h1>
+<p>If you are not paying for a certificate authority to generate a certificate for you, you will first need to generated a CA for gearmand:</p>
+<blockquote>
+<div><p>openssl req -config /etc/pki/tls/openssl.cnf -new -x509 -keyout gearmand-ca.key -out gearmand-ca.pem -days 3650</p>
+<p>echo &#8220;00&#8221; &gt; gearmand.srl</p>
+</div></blockquote>
+<p>You will need to place your ca certificate into the directory you want the server to read it from.</p>
+<p>Generate a server certificate for the server to use:</p>
+<blockquote>
+<div><p>openssl genrsa -out gearmand.key 1024</p>
+<p>openssl req -key gearmand.key -new -out gearmand.req</p>
+<p>openssl x509 -req -in gearmand.req -CA gearmand-ca.pem -CAkey gearmand-ca.key -CAserial gearmand.srl -out gearmand.pem</p>
+</div></blockquote>
+<p>Generate a client certificate for client/workers to use:</p>
+<blockquote>
+<div><p>openssl genrsa -out gearman.key 1024</p>
+<p>openssl req -key gearman.key -new -out gearman.req</p>
+<p>openssl x509 -req -in gearman.req -CA gearmand-ca.pem -CAkey gearmand-ca.key -CAserial gearmand.srl  -out gearman.pem</p>
+</div></blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="queues/sqlite.html"
+                        title="previous chapter">SQLite</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../bin/gearman.html"
+                        title="next chapter">Gearman Command Line Tool</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../bin/gearman.html" title="Gearman Command Line Tool"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="queues/sqlite.html" title="SQLite"
+             >previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

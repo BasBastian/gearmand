@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Gearman Client/Worker Library &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="index.html" />
+    <link rel="prev" title="Changelog" href="changes.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="changes.html" title="Changelog"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Gearmand 6668028 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="gearman-client-worker-library">
+<h1>Gearman Client/Worker Library<a class="headerlink" href="#gearman-client-worker-library" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<span id="index-0"></span><h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p>#include &lt;libgearman/gearman.h&gt;</p>
+<p>Link -lgearman</p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href=""><em>Gearman Client/Worker Library</em></a> is a small, thread-safe client library for the
+gearman protocol. The code has all been written with an eye to allow
+for both web and embedded usage. It handles the work behind routing
+particular keys to specific servers that you specify (and values are
+matched based on server order as supplied by you). It implements both
+the <a class="reference internal" href="glossary.html#term-client"><em class="xref std std-term">client</em></a> and <a class="reference internal" href="glossary.html#term-worker"><em class="xref std std-term">worker</em></a> interfaces.</p>
+<p>All operations are performed against either a client, ie <a class="reference internal" href="libgearman/gearman_client_st.html#c.gearman_client_st" title="gearman_client_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_client_st</span></tt></a>
+or worker, ie <a class="reference internal" href="libgearman/gearman_worker_st.html#c.gearman_worker_st" title="gearman_worker_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_worker_st</span></tt></a>.</p>
+<p>Client and Worker structures can either be dynamically allocated or statically
+allocated. They must then b initialized by <a class="reference internal" href="libgearman/gearman_client.html#c.gearman_client_create" title="gearman_client_create"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_create()</span></tt></a> or <a class="reference internal" href="libgearman/gearman_worker_create.html#c.gearman_worker_create" title="gearman_worker_create"><tt class="xref c c-func docutils literal"><span class="pre">gearman_worker_create()</span></tt></a>.</p>
+<p>Functions have been written in order to encapsulate all structures in the library. It is
+recommended that you do not operate directly against the structure.</p>
+<p>Nearly all functions return a <a class="reference internal" href="libgearman/gearman_return_t.html#c.gearman_return_t" title="gearman_return_t"><tt class="xref c c-type docutils literal"><span class="pre">gearman_return_t</span></tt></a> value.
+This value can be translated to a printable string with <a class="reference internal" href="libgearman/gearman_return_t.html#c.gearman_strerror" title="gearman_strerror"><tt class="xref c c-func docutils literal"><span class="pre">gearman_strerror()</span></tt></a>.</p>
+<p><a class="reference internal" href="libgearman/gearman_client_st.html#c.gearman_client_st" title="gearman_client_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_client_st</span></tt></a> and <a class="reference internal" href="libgearman/gearman_worker_st.html#c.gearman_worker_st" title="gearman_worker_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_worker_st</span></tt></a> structures are thread-safe, but each thread must
+contain its own structure (that is, if you want to share these among
+threads you must provide your own locking). No global variables are
+used in this library.</p>
+<p>If you are working with GNU autotools you will want to add the following to
+your configure.ac to properly include libgearman in your application.</p>
+<p>PKG_CHECK_MODULES(DEPS, libgearman &gt;= 0.8.0)
+AC_SUBST(DEPS_CFLAGS)
+AC_SUBST(DEPS_LIBS)</p>
+<p>Hope you enjoy it!</p>
+</div>
+<div class="section" id="constants">
+<h2>CONSTANTS<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<p>A number of constants have been provided for in the library.</p>
+<dl class="macro">
+<dt id="c.GEARMAN_DEFAULT_TCP_PORT">
+<tt class="descname">GEARMAN_DEFAULT_TCP_PORT</tt><a class="headerlink" href="#c.GEARMAN_DEFAULT_TCP_PORT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>The default port used by gearmand(3).</p>
+<dl class="macro">
+<dt>
+<tt class="descname">GEARMAN_DEFAULT_TCP_PORT</tt></dt>
+<dd></dd></dl>
+
+<p>The default service used by gearmand(3).</p>
+<dl class="macro">
+<dt id="c.LIBGEARMAN_VERSION_STRING">
+<tt class="descname">LIBGEARMAN_VERSION_STRING</tt><a class="headerlink" href="#c.LIBGEARMAN_VERSION_STRING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>String value of the libgearman version such as &#8220;0.20.4&#8221;</p>
+<dl class="macro">
+<dt id="c.LIBGEARMAN_VERSION_HEX">
+<tt class="descname">LIBGEARMAN_VERSION_HEX</tt><a class="headerlink" href="#c.LIBGEARMAN_VERSION_HEX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Hex value of the version number. &#8220;0x00048000&#8221; This can be used for comparing versions based on number.</p>
+<dl class="macro">
+<dt id="c.GEARMAN_UNIQUE_SIZE">
+<tt class="descname">GEARMAN_UNIQUE_SIZE</tt><a class="headerlink" href="#c.GEARMAN_UNIQUE_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Largest number of characters that can be used for a unique value.</p>
+<dl class="macro">
+<dt id="c.GEARMAN_JOB_HANDLE_SIZE">
+<tt class="descname">GEARMAN_JOB_HANDLE_SIZE</tt><a class="headerlink" href="#c.GEARMAN_JOB_HANDLE_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Largest number of characters that can will be used for a job handle. Please
+see <a class="reference internal" href="libgearman/gearman_job_handle_t.html#c.gearman_job_handle_t" title="gearman_job_handle_t"><tt class="xref c c-type docutils literal"><span class="pre">gearman_job_handle_t</span></tt></a> for additional information.</p>
+</div>
+<div class="section" id="threads-and-processes">
+<h2>THREADS AND PROCESSES<a class="headerlink" href="#threads-and-processes" title="Permalink to this headline">¶</a></h2>
+<p>When using threads or forked processes it is important to keep an instance
+of <a class="reference internal" href="libgearman/gearman_client_st.html#c.gearman_client_st" title="gearman_client_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_client_st</span></tt></a> or <a class="reference internal" href="libgearman/gearman_worker_st.html#c.gearman_worker_st" title="gearman_worker_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_worker_st</span></tt></a>  per process
+or thread.  Without creating your own locking structures you can not share
+a single <a class="reference internal" href="libgearman/gearman_client_st.html#c.gearman_client_st" title="gearman_client_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_client_st</span></tt></a> or <a class="reference internal" href="libgearman/gearman_worker_st.html#c.gearman_worker_st" title="gearman_worker_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_worker_st</span></tt></a>.</p>
+</div>
+<div class="section" id="home">
+<h2>HOME<a class="headerlink" href="#home" title="Permalink to this headline">¶</a></h2>
+<p>To find out more information please check:
+<a class="reference external" href="https://github.com/gearman/gearmand">https://github.com/gearman/gearmand</a></p>
+</div>
+<div class="section" id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><em class="manpage">gearmand(8)</em> <em class="manpage">libgearman_examples(3)</em></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Gearman Client/Worker Library</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#constants">CONSTANTS</a></li>
+<li><a class="reference internal" href="#threads-and-processes">THREADS AND PROCESSES</a></li>
+<li><a class="reference internal" href="#home">HOME</a></li>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="changes.html"
+                        title="previous chapter">Changelog</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="changes.html" title="Changelog"
+             >previous</a> |</li>
+        <li><a href="index.html">Gearmand 6668028 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Error Codes (gearman_return_t) &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="../index.html" />
+    <link rel="up" title="Libgearman" href="index.html" />
+    <link rel="next" title="Client callbacks (gearman_actions_t)" href="gearman_actions_t.html" />
+    <link rel="prev" title="Defining custom allocators (gearman_allocator_t)" href="gearman_allocator_t.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gearman_actions_t.html" title="Client callbacks (gearman_actions_t)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gearman_allocator_t.html" title="Defining custom allocators (gearman_allocator_t)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Libgearman</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="error-codes-gearman-return-t">
+<h1>Error Codes (gearman_return_t)<a class="headerlink" href="#error-codes-gearman-return-t" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p>#include &lt;libgearman/gearman.h&gt;</p>
+<dl class="type">
+<dt id="c.gearman_return_t">
+<tt class="descname">gearman_return_t</tt><a class="headerlink" href="#c.gearman_return_t" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_strerror">
+const char *<tt class="descname">gearman_strerror</tt><big>(</big><a class="reference internal" href="#c.gearman_return_t" title="gearman_return_t">gearman_return_t</a><em>&nbsp;rc</em><big>)</big><a class="headerlink" href="#c.gearman_strerror" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_success">
+<a class="reference internal" href="types.html#c.bool" title="bool">bool</a> <tt class="descname">gearman_success</tt><big>(</big><a class="reference internal" href="#c.gearman_return_t" title="gearman_return_t">gearman_return_t</a><em>&nbsp;rc</em><big>)</big><a class="headerlink" href="#c.gearman_success" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_failed">
+<a class="reference internal" href="types.html#c.bool" title="bool">bool</a> <tt class="descname">gearman_failed</tt><big>(</big><a class="reference internal" href="#c.gearman_return_t" title="gearman_return_t">gearman_return_t</a><em>&nbsp;rc</em><big>)</big><a class="headerlink" href="#c.gearman_failed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_continue">
+<a class="reference internal" href="types.html#c.bool" title="bool">bool</a> <tt class="descname">gearman_continue</tt><big>(</big><a class="reference internal" href="#c.gearman_return_t" title="gearman_return_t">gearman_return_t</a><em>&nbsp;rc</em><big>)</big><a class="headerlink" href="#c.gearman_continue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Compile and link with -lgearman</p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#c.gearman_return_t" title="gearman_return_t"><tt class="xref c c-type docutils literal"><span class="pre">gearman_return_t</span></tt></a> is used as a return/error type for all calls using <a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_client_st</span></tt></a> and <a class="reference internal" href="gearman_worker_st.html#c.gearman_worker_st" title="gearman_worker_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_worker_st</span></tt></a>.
+<a class="reference internal" href="#c.GEARMAN_SUCCESS" title="GEARMAN_SUCCESS"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_SUCCESS</span></tt></a> is returned upon success, otherwise an error is returned. <a class="reference internal" href="#c.gearman_failed" title="gearman_failed"><tt class="xref c c-func docutils literal"><span class="pre">gearman_failed()</span></tt></a> can be used to see if the return value is a failing value.
+You can print a text version of the error message with <a class="reference internal" href="#c.gearman_strerror" title="gearman_strerror"><tt class="xref c c-func docutils literal"><span class="pre">gearman_strerror()</span></tt></a>.</p>
+<p><a class="reference internal" href="#c.gearman_success" title="gearman_success"><tt class="xref c c-func docutils literal"><span class="pre">gearman_success()</span></tt></a> return true if <a class="reference internal" href="#c.GEARMAN_SUCCESS" title="GEARMAN_SUCCESS"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_SUCCESS</span></tt></a> or if
+<a class="reference internal" href="#c.GEARMAN_NO_PENDING_TASKS" title="GEARMAN_NO_PENDING_TASKS"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_NO_PENDING_TASKS</span></tt></a> tests true.</p>
+<p><a class="reference internal" href="#c.gearman_failed" title="gearman_failed"><tt class="xref c c-func docutils literal"><span class="pre">gearman_failed()</span></tt></a> return true if any value other then <a class="reference internal" href="#c.GEARMAN_SUCCESS" title="GEARMAN_SUCCESS"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_SUCCESS</span></tt></a> was provided.</p>
+<p><a class="reference internal" href="#c.gearman_continue" title="gearman_continue"><tt class="xref c c-func docutils literal"><span class="pre">gearman_continue()</span></tt></a> returns true if any error related to non-blocking IO
+occurred. This should be used for testing loops.</p>
+<div class="section" id="possible-values-of-gearman-return-t">
+<h3>Possible values of <a class="reference internal" href="#c.gearman_return_t" title="gearman_return_t"><tt class="xref c c-type docutils literal"><span class="pre">gearman_return_t</span></tt></a>:<a class="headerlink" href="#possible-values-of-gearman-return-t" title="Permalink to this headline">¶</a></h3>
+<dl class="type">
+<dt id="c.GEARMAN_SUCCESS">
+<tt class="descname">GEARMAN_SUCCESS</tt><a class="headerlink" href="#c.GEARMAN_SUCCESS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Success</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_NO_PENDING_TASKS">
+<tt class="descname">GEARMAN_NO_PENDING_TASKS</tt><a class="headerlink" href="#c.GEARMAN_NO_PENDING_TASKS" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="gearman_client_run_tasks.html#c.gearman_client_run_tasks" title="gearman_client_run_tasks"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_run_tasks()</span></tt></a> was called and it has completed all tasks assigned to the client.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_IO_WAIT">
+<tt class="descname">GEARMAN_IO_WAIT</tt><a class="headerlink" href="#c.GEARMAN_IO_WAIT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Blocking IO was found. gearman_continue() can be used to test for this.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_ERRNO">
+<tt class="descname">GEARMAN_ERRNO</tt><a class="headerlink" href="#c.GEARMAN_ERRNO" title="Permalink to this definition">¶</a></dt>
+<dd><p>System error occurred. Use either <a class="reference internal" href="gearman_client_error.html#c.gearman_client_errno" title="gearman_client_errno"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_errno()</span></tt></a> or <a class="reference internal" href="gearman_worker_error.html#c.gearman_worker_errno" title="gearman_worker_errno"><tt class="xref c c-func docutils literal"><span class="pre">gearman_worker_errno()</span></tt></a></p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_NO_ACTIVE_FDS">
+<tt class="descname">GEARMAN_NO_ACTIVE_FDS</tt><a class="headerlink" href="#c.GEARMAN_NO_ACTIVE_FDS" title="Permalink to this definition">¶</a></dt>
+<dd><p>No active connections were available.  gearman_continue() can be used to test for this.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_GETADDRINFO">
+<tt class="descname">GEARMAN_GETADDRINFO</tt><a class="headerlink" href="#c.GEARMAN_GETADDRINFO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name resolution failed for a host.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_NO_SERVERS">
+<tt class="descname">GEARMAN_NO_SERVERS</tt><a class="headerlink" href="#c.GEARMAN_NO_SERVERS" title="Permalink to this definition">¶</a></dt>
+<dd><p>No servers have been provided for the client/worker.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_LOST_CONNECTION">
+<tt class="descname">GEARMAN_LOST_CONNECTION</tt><a class="headerlink" href="#c.GEARMAN_LOST_CONNECTION" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connection was lost to the given server.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_MEMORY_ALLOCATION_FAILURE">
+<tt class="descname">GEARMAN_MEMORY_ALLOCATION_FAILURE</tt><a class="headerlink" href="#c.GEARMAN_MEMORY_ALLOCATION_FAILURE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Memory allocation failed.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_SERVER_ERROR">
+<tt class="descname">GEARMAN_SERVER_ERROR</tt><a class="headerlink" href="#c.GEARMAN_SERVER_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd><p>An error occurred on the server.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_NOT_CONNECTED">
+<tt class="descname">GEARMAN_NOT_CONNECTED</tt><a class="headerlink" href="#c.GEARMAN_NOT_CONNECTED" title="Permalink to this definition">¶</a></dt>
+<dd><p>Client/Worker is not currently connected to the server.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_COULD_NOT_CONNECT">
+<tt class="descname">GEARMAN_COULD_NOT_CONNECT</tt><a class="headerlink" href="#c.GEARMAN_COULD_NOT_CONNECT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server name was valid, but a connection could not be made.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_ECHO_DATA_CORRUPTION">
+<tt class="descname">GEARMAN_ECHO_DATA_CORRUPTION</tt><a class="headerlink" href="#c.GEARMAN_ECHO_DATA_CORRUPTION" title="Permalink to this definition">¶</a></dt>
+<dd><p>Either <a class="reference internal" href="gearman_client_echo.html#c.gearman_client_echo" title="gearman_client_echo"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_echo()</span></tt></a> or <a class="reference internal" href="gearman_client_echo.html#c.gearman_worker_echo" title="gearman_worker_echo"><tt class="xref c c-func docutils literal"><span class="pre">gearman_worker_echo()</span></tt></a> echo
+was unsuccessful because the data was returned from <strong class="program">gearmand</strong>
+corrupted.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_UNKNOWN_STATE">
+<tt class="descname">GEARMAN_UNKNOWN_STATE</tt><a class="headerlink" href="#c.GEARMAN_UNKNOWN_STATE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The gearman_return_t was never set.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_FLUSH_DATA">
+<tt class="descname">GEARMAN_FLUSH_DATA</tt><a class="headerlink" href="#c.GEARMAN_FLUSH_DATA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Internal state, should never be seen by either client or worker.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_SEND_BUFFER_TOO_SMALL">
+<tt class="descname">GEARMAN_SEND_BUFFER_TOO_SMALL</tt><a class="headerlink" href="#c.GEARMAN_SEND_BUFFER_TOO_SMALL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send buffer was too small.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_TIMEOUT">
+<tt class="descname">GEARMAN_TIMEOUT</tt><a class="headerlink" href="#c.GEARMAN_TIMEOUT" title="Permalink to this definition">¶</a></dt>
+<dd><p>A timeout occurred when making a request to the server.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_ARGUMENT_TOO_LARGE">
+<tt class="descname">GEARMAN_ARGUMENT_TOO_LARGE</tt><a class="headerlink" href="#c.GEARMAN_ARGUMENT_TOO_LARGE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Argument was too large for the current buffer.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_INVALID_ARGUMENT">
+<tt class="descname">GEARMAN_INVALID_ARGUMENT</tt><a class="headerlink" href="#c.GEARMAN_INVALID_ARGUMENT" title="Permalink to this definition">¶</a></dt>
+<dd><p>One of the arguments to the given API call was invalid. EINVAL will be set if <a class="reference internal" href="gearman_client_error.html#c.gearman_client_error" title="gearman_client_error"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_error()</span></tt></a> or <a class="reference internal" href="gearman_worker_error.html#c.gearman_worker_error" title="gearman_worker_error"><tt class="xref c c-func docutils literal"><span class="pre">gearman_worker_error()</span></tt></a> were not settable. This can also be returned if <a class="reference internal" href="gearman_client_options.html#c.GEARMAN_CLIENT_UNBUFFERED_RESULT" title="GEARMAN_CLIENT_UNBUFFERED_RESULT"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_CLIENT_UNBUFFERED_RESULT</span></tt></a> was set, but the client is not handling the data correctly.</p>
+</dd></dl>
+
+<div class="section" id="client-only">
+<h4>CLIENT ONLY<a class="headerlink" href="#client-only" title="Permalink to this headline">¶</a></h4>
+<dl class="type">
+<dt id="c.GEARMAN_NEED_WORKLOAD_FN">
+<tt class="descname">GEARMAN_NEED_WORKLOAD_FN</tt><a class="headerlink" href="#c.GEARMAN_NEED_WORKLOAD_FN" title="Permalink to this definition">¶</a></dt>
+<dd><p>A client was asked for work, but no <a class="reference internal" href="gearman_actions_t.html#c.gearman_workload_fn" title="gearman_workload_fn"><tt class="xref c c-type docutils literal"><span class="pre">gearman_workload_fn</span></tt></a> callback was specified. See <a class="reference internal" href="gearman_actions_t.html#c.gearman_client_set_workload_fn" title="gearman_client_set_workload_fn"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_set_workload_fn()</span></tt></a></p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_WORK_FAIL">
+<tt class="descname">GEARMAN_WORK_FAIL</tt><a class="headerlink" href="#c.GEARMAN_WORK_FAIL" title="Permalink to this definition">¶</a></dt>
+<dd><p>A task has failed, and the worker has exited with an error or it called <a class="reference internal" href="gearman_job_st.html#c.gearman_job_send_fail" title="gearman_job_send_fail"><tt class="xref c c-func docutils literal"><span class="pre">gearman_job_send_fail()</span></tt></a></p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_IN_PROGRESS">
+<tt class="descname">GEARMAN_IN_PROGRESS</tt><a class="headerlink" href="#c.GEARMAN_IN_PROGRESS" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="gearman_client_job_status.html#c.gearman_client_job_status" title="gearman_client_job_status"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_job_status()</span></tt></a> has been called for a <a class="reference internal" href="gearman_job_handle_t.html#c.gearman_job_handle_t" title="gearman_job_handle_t"><tt class="xref c c-type docutils literal"><span class="pre">gearman_job_handle_t</span></tt></a> and the Job is currently being run by a worker.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_JOB_EXISTS">
+<tt class="descname">GEARMAN_JOB_EXISTS</tt><a class="headerlink" href="#c.GEARMAN_JOB_EXISTS" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="gearman_client_job_status.html#c.gearman_client_job_status" title="gearman_client_job_status"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_job_status()</span></tt></a> has been called for a <a class="reference internal" href="gearman_job_handle_t.html#c.gearman_job_handle_t" title="gearman_job_handle_t"><tt class="xref c c-type docutils literal"><span class="pre">gearman_job_handle_t</span></tt></a> and the Job is currently known by a server, but is not being run by a worker.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="worker-only">
+<h4>WORKER ONLY<a class="headerlink" href="#worker-only" title="Permalink to this headline">¶</a></h4>
+<dl class="type">
+<dt id="c.GEARMAN_INVALID_FUNCTION_NAME">
+<tt class="descname">GEARMAN_INVALID_FUNCTION_NAME</tt><a class="headerlink" href="#c.GEARMAN_INVALID_FUNCTION_NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>A worker was sent a request for a job that it did not have a valid function for.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_INVALID_WORKER_FUNCTION">
+<tt class="descname">GEARMAN_INVALID_WORKER_FUNCTION</tt><a class="headerlink" href="#c.GEARMAN_INVALID_WORKER_FUNCTION" title="Permalink to this definition">¶</a></dt>
+<dd><p>No callback was provided by the worker for a given function.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_NO_REGISTERED_FUNCTION">
+<tt class="descname">GEARMAN_NO_REGISTERED_FUNCTION</tt><a class="headerlink" href="#c.GEARMAN_NO_REGISTERED_FUNCTION" title="Permalink to this definition">¶</a></dt>
+<dd><p>A request for removing a given function from a worker was invalid since that function did not exist.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_NO_REGISTERED_FUNCTIONS">
+<tt class="descname">GEARMAN_NO_REGISTERED_FUNCTIONS</tt><a class="headerlink" href="#c.GEARMAN_NO_REGISTERED_FUNCTIONS" title="Permalink to this definition">¶</a></dt>
+<dd><p>The worker has not registered any functions.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_NO_JOBS">
+<tt class="descname">GEARMAN_NO_JOBS</tt><a class="headerlink" href="#c.GEARMAN_NO_JOBS" title="Permalink to this definition">¶</a></dt>
+<dd><p>No jobs were found for the worker. This error code is only returned if the worker has just made a request for jobs.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="worker-to-client">
+<h4>WORKER TO CLIENT<a class="headerlink" href="#worker-to-client" title="Permalink to this headline">¶</a></h4>
+<p>Client which have registed a custom <a class="reference internal" href="gearman_actions_t.html#c.gearman_actions_t" title="gearman_actions_t"><tt class="xref c c-type docutils literal"><span class="pre">gearman_actions_t</span></tt></a> may use these
+value as return values to the calling client.</p>
+<dl class="type">
+<dt id="c.GEARMAN_WORK_DATA">
+<tt class="descname">GEARMAN_WORK_DATA</tt><a class="headerlink" href="#c.GEARMAN_WORK_DATA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Worker has sent a chunked piece of data to the client via <a class="reference internal" href="gearman_job_st.html#c.gearman_job_send_data" title="gearman_job_send_data"><tt class="xref c c-func docutils literal"><span class="pre">gearman_job_send_data()</span></tt></a></p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_WORK_WARNING">
+<tt class="descname">GEARMAN_WORK_WARNING</tt><a class="headerlink" href="#c.GEARMAN_WORK_WARNING" title="Permalink to this definition">¶</a></dt>
+<dd><p>Worker has issued a warning to the client via <a class="reference internal" href="gearman_job_st.html#c.gearman_job_send_warning" title="gearman_job_send_warning"><tt class="xref c c-func docutils literal"><span class="pre">gearman_job_send_warning()</span></tt></a></p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_WORK_STATUS">
+<tt class="descname">GEARMAN_WORK_STATUS</tt><a class="headerlink" href="#c.GEARMAN_WORK_STATUS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Status has been updated by the worker via <a class="reference internal" href="gearman_job_st.html#c.gearman_job_send_status" title="gearman_job_send_status"><tt class="xref c c-func docutils literal"><span class="pre">gearman_job_send_status()</span></tt></a></p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_WORK_EXCEPTION">
+<tt class="descname">GEARMAN_WORK_EXCEPTION</tt><a class="headerlink" href="#c.GEARMAN_WORK_EXCEPTION" title="Permalink to this definition">¶</a></dt>
+<dd><p>Worker has sent an exception the client via <a class="reference internal" href="gearman_job_st.html#c.gearman_job_send_exception" title="gearman_job_send_exception"><tt class="xref c c-func docutils literal"><span class="pre">gearman_job_send_exception()</span></tt></a></p>
+</dd></dl>
+
+<dl class="type">
+<dt>
+<tt class="descname">GEARMAN_WORK_FAIL</tt></dt>
+<dd><p>A task has failed, and the worker has exited with an error or it called <a class="reference internal" href="gearman_job_st.html#c.gearman_job_send_fail" title="gearman_job_send_fail"><tt class="xref c c-func docutils literal"><span class="pre">gearman_job_send_fail()</span></tt></a></p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_WORK_ERROR">
+<tt class="descname">GEARMAN_WORK_ERROR</tt><a class="headerlink" href="#c.GEARMAN_WORK_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd><p>A task has had an error and will be retried.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_PAUSE">
+<tt class="descname">GEARMAN_PAUSE</tt><a class="headerlink" href="#c.GEARMAN_PAUSE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used only in custom application for client return based on <a class="reference internal" href="#c.GEARMAN_WORK_DATA" title="GEARMAN_WORK_DATA"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_WORK_DATA</span></tt></a>, <a class="reference internal" href="#c.GEARMAN_WORK_WARNING" title="GEARMAN_WORK_WARNING"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_WORK_WARNING</span></tt></a>, <a class="reference internal" href="#c.GEARMAN_WORK_EXCEPTION" title="GEARMAN_WORK_EXCEPTION"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_WORK_EXCEPTION</span></tt></a>, <a class="reference internal" href="#c.GEARMAN_WORK_FAIL" title="GEARMAN_WORK_FAIL"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_WORK_FAIL</span></tt></a>, or <a class="reference internal" href="#c.GEARMAN_WORK_STATUS" title="GEARMAN_WORK_STATUS"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_WORK_STATUS</span></tt></a>. <a class="reference internal" href="#c.gearman_continue" title="gearman_continue"><tt class="xref c c-func docutils literal"><span class="pre">gearman_continue()</span></tt></a> can be used to check for this value.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id1">
+<h4>WORKER TO CLIENT<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Any function defined by <a class="reference internal" href="gearman_worker_define_function.html#c.gearman_worker_define_function" title="gearman_worker_define_function"><tt class="xref c c-func docutils literal"><span class="pre">gearman_worker_define_function()</span></tt></a> may, and can only, return the following <a class="reference internal" href="#c.gearman_return_t" title="gearman_return_t"><tt class="xref c c-type docutils literal"><span class="pre">gearman_return_t</span></tt></a> values.</p>
+<dl class="type">
+<dt>
+<tt class="descname">GEARMAN_SUCCESS</tt></dt>
+<dd><p>The function successfully completed the job.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_FATAL">
+<tt class="descname">GEARMAN_FATAL</tt><a class="headerlink" href="#c.GEARMAN_FATAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_FAIL">
+<tt class="descname">GEARMAN_FAIL</tt><a class="headerlink" href="#c.GEARMAN_FAIL" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function failed to complete the job. <a class="reference internal" href="#c.GEARMAN_FATAL" title="GEARMAN_FATAL"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_FATAL</span></tt></a> is the deprecated name for <a class="reference internal" href="#c.GEARMAN_FAIL" title="GEARMAN_FAIL"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_FAIL</span></tt></a></p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_ERROR">
+<tt class="descname">GEARMAN_ERROR</tt><a class="headerlink" href="#c.GEARMAN_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd><p>A task has had an error and will be retried.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_SHUTDOWN">
+<tt class="descname">GEARMAN_SHUTDOWN</tt><a class="headerlink" href="#c.GEARMAN_SHUTDOWN" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#c.GEARMAN_SHUTDOWN" title="GEARMAN_SHUTDOWN"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_SHUTDOWN</span></tt></a> is a special case. If it is returned the client will be sent <a class="reference internal" href="#c.GEARMAN_SUCCESS" title="GEARMAN_SUCCESS"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_SUCCESS</span></tt></a>, but <a class="reference internal" href="gearman_worker_st.html#c.gearman_worker_work" title="gearman_worker_work"><tt class="xref c c-func docutils literal"><span class="pre">gearman_worker_work()</span></tt></a> will exit with <a class="reference internal" href="#c.GEARMAN_SHUTDOWN" title="GEARMAN_SHUTDOWN"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_SHUTDOWN</span></tt></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="task-only">
+<h4>TASK ONLY<a class="headerlink" href="#task-only" title="Permalink to this headline">¶</a></h4>
+<dl class="type">
+<dt id="c.GEARMAN_NOT_FLUSHING">
+<tt class="descname">GEARMAN_NOT_FLUSHING</tt><a class="headerlink" href="#c.GEARMAN_NOT_FLUSHING" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="gearman_task_st.html#c.gearman_task_send_workload" title="gearman_task_send_workload"><tt class="xref c c-func docutils literal"><span class="pre">gearman_task_send_workload()</span></tt></a> failed, it was not in the correct state.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_DATA_TOO_LARGE">
+<tt class="descname">GEARMAN_DATA_TOO_LARGE</tt><a class="headerlink" href="#c.GEARMAN_DATA_TOO_LARGE" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="gearman_task_st.html#c.gearman_task_send_workload" title="gearman_task_send_workload"><tt class="xref c c-func docutils literal"><span class="pre">gearman_task_send_workload()</span></tt></a> failed, the data was too large to be sent.</p>
+</dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_UNKNOWN_OPTION">
+<tt class="descname">GEARMAN_UNKNOWN_OPTION</tt><a class="headerlink" href="#c.GEARMAN_UNKNOWN_OPTION" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default state of task return value.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="protocol">
+<h4>PROTOCOL<a class="headerlink" href="#protocol" title="Permalink to this headline">¶</a></h4>
+<p>If any of these errors occurred the connection will be dropped/reset.</p>
+<dl class="type">
+<dt id="c.GEARMAN_INVALID_MAGIC">
+<tt class="descname">GEARMAN_INVALID_MAGIC</tt><a class="headerlink" href="#c.GEARMAN_INVALID_MAGIC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_INVALID_COMMAND">
+<tt class="descname">GEARMAN_INVALID_COMMAND</tt><a class="headerlink" href="#c.GEARMAN_INVALID_COMMAND" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_INVALID_PACKET">
+<tt class="descname">GEARMAN_INVALID_PACKET</tt><a class="headerlink" href="#c.GEARMAN_INVALID_PACKET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_UNEXPECTED_PACKET">
+<tt class="descname">GEARMAN_UNEXPECTED_PACKET</tt><a class="headerlink" href="#c.GEARMAN_UNEXPECTED_PACKET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_TOO_MANY_ARGS">
+<tt class="descname">GEARMAN_TOO_MANY_ARGS</tt><a class="headerlink" href="#c.GEARMAN_TOO_MANY_ARGS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="deprecated">
+<h4>DEPRECATED<a class="headerlink" href="#deprecated" title="Permalink to this headline">¶</a></h4>
+<dl class="type">
+<dt id="c.GEARMAN_IGNORE_PACKET">
+<tt class="descname">GEARMAN_IGNORE_PACKET</tt><a class="headerlink" href="#c.GEARMAN_IGNORE_PACKET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="c.GEARMAN_MAX_RETURN">
+<tt class="descname">GEARMAN_MAX_RETURN</tt><a class="headerlink" href="#c.GEARMAN_MAX_RETURN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+<div class="section" id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><em class="manpage">gearmand(8)</em> <em class="manpage">libgearman(3)</em> <em class="manpage">gearman_client_error()</em> or <em class="manpage">gearman_worker_error()</em></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Error Codes (gearman_return_t)</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a><ul>
+<li><a class="reference internal" href="#possible-values-of-gearman-return-t">Possible values of <tt class="docutils literal"><span class="pre">gearman_return_t</span></tt>:</a><ul>
+<li><a class="reference internal" href="#client-only">CLIENT ONLY</a></li>
+<li><a class="reference internal" href="#worker-only">WORKER ONLY</a></li>
+<li><a class="reference internal" href="#worker-to-client">WORKER TO CLIENT</a></li>
+<li><a class="reference internal" href="#id1">WORKER TO CLIENT</a></li>
+<li><a class="reference internal" href="#task-only">TASK ONLY</a></li>
+<li><a class="reference internal" href="#protocol">PROTOCOL</a></li>
+<li><a class="reference internal" href="#deprecated">DEPRECATED</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gearman_allocator_t.html"
+                        title="previous chapter">Defining custom allocators (gearman_allocator_t)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gearman_actions_t.html"
+                        title="next chapter">Client callbacks (gearman_actions_t)</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gearman_actions_t.html" title="Client callbacks (gearman_actions_t)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gearman_allocator_t.html" title="Defining custom allocators (gearman_allocator_t)"
+             >previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Libgearman</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

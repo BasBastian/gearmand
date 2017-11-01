@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Executing Work &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="../index.html" />
+    <link rel="up" title="Libgearman" href="index.html" />
+    <link rel="next" title="Errors reported to the client" href="gearman_client_error.html" />
+    <link rel="prev" title="Issuing a single background task" href="gearman_client_do_background.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gearman_client_error.html" title="Errors reported to the client"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gearman_client_do_background.html" title="Issuing a single background task"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Libgearman</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="executing-work">
+<h1>Executing Work<a class="headerlink" href="#executing-work" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p>#include &lt;libgearman/gearman.h&gt;</p>
+<dl class="function">
+<dt id="c.gearman_execute">
+<a class="reference internal" href="gearman_task_st.html#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a> *<tt class="descname">gearman_execute</tt><big>(</big><a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a><em>&nbsp;*client</em>, const char<em>&nbsp;*function_name</em>, size_t<em>&nbsp;function_name_length</em>, const char<em>&nbsp;*unique</em>, size_t<em>&nbsp;unique_length</em>, <a class="reference internal" href="gearman_task_attr_t.html#c.gearman_work_t" title="gearman_work_t">gearman_work_t</a><em>&nbsp;*workload</em>, <a class="reference internal" href="gearman_argument_t.html#c.gearman_argument_t" title="gearman_argument_t">gearman_argument_t</a><em>&nbsp;*arguments</em>, void<em>&nbsp;*context</em><big>)</big><a class="headerlink" href="#c.gearman_execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_execute_by_partition">
+<a class="reference internal" href="gearman_task_st.html#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a> *<tt class="descname">gearman_execute_by_partition</tt><big>(</big><a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a><em>&nbsp;*client</em>, const char<em>&nbsp;*partition_function</em>, const size_t<em>&nbsp;partition_function_length</em>, const char<em>&nbsp;*function_name</em>, const size_t<em>&nbsp;function_name_length</em>, const char<em>&nbsp;*unique_str</em>, const size_t<em>&nbsp;unique_length</em>, <a class="reference internal" href="gearman_task_attr_t.html#c.gearman_work_t" title="gearman_work_t">gearman_work_t</a><em>&nbsp;*workload</em>, <a class="reference internal" href="gearman_argument_t.html#c.gearman_argument_t" title="gearman_argument_t">gearman_argument_t</a><em>&nbsp;*arguments</em>, void<em>&nbsp;*context</em><big>)</big><a class="headerlink" href="#c.gearman_execute_by_partition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Link with -lgearman</p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#c.gearman_execute" title="gearman_execute"><tt class="xref c c-func docutils literal"><span class="pre">gearman_execute()</span></tt></a> is used to create a new <a class="reference internal" href="gearman_task_st.html#c.gearman_task_st" title="gearman_task_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_task_st</span></tt></a> that is executed against the function that is found via the function_name argument.</p>
+<p><a class="reference internal" href="gearman_task_attr_t.html#c.gearman_work_t" title="gearman_work_t"><tt class="xref c c-type docutils literal"><span class="pre">gearman_work_t</span></tt></a> can be used to describe the work that will be
+executed, it is built with <a class="reference internal" href="gearman_argument_t.html#c.gearman_argument_make" title="gearman_argument_make"><tt class="xref c c-func docutils literal"><span class="pre">gearman_argument_make()</span></tt></a>.  The argument
+unique_str is optional, but if supplied it is used for coalescence by
+<strong class="program">gearmand</strong>.</p>
+<p><a class="reference internal" href="gearman_argument_t.html#c.gearman_argument_t" title="gearman_argument_t"><tt class="xref c c-type docutils literal"><span class="pre">gearman_argument_t</span></tt></a> is the work that the <a class="reference internal" href="../glossary.html#term-client"><em class="xref std std-term">client</em></a> will send
+the to the server</p>
+<p>If <a class="reference internal" href="#c.gearman_execute" title="gearman_execute"><tt class="xref c c-func docutils literal"><span class="pre">gearman_execute()</span></tt></a> is given a <a class="reference internal" href="gearman_task_attr_t.html#c.gearman_work_t" title="gearman_work_t"><tt class="xref c c-type docutils literal"><span class="pre">gearman_work_t</span></tt></a> that has been built with a reducer, it takes the <a class="reference internal" href="gearman_argument_t.html#c.gearman_argument_t" title="gearman_argument_t"><tt class="xref c c-type docutils literal"><span class="pre">gearman_argument_t</span></tt></a> and executs it against a <a class="reference internal" href="../glossary.html#term-function"><em class="xref std std-term">function</em></a> as it normally would, but it tells the function to then process the results through a <a class="reference internal" href="../glossary.html#term-reducer"><em class="xref std std-term">reducer</em></a> function that the <a class="reference internal" href="gearman_task_attr_t.html#c.gearman_work_t" title="gearman_work_t"><tt class="xref c c-type docutils literal"><span class="pre">gearman_work_t</span></tt></a> was created with.</p>
+<p>What is happening is that the function is mappping/splitting work up into units, and then sending each of them to the reducer function. Once all work is completed, the <a class="reference internal" href="../glossary.html#term-mapper"><em class="xref std std-term">mapper</em></a> function will aggregate the work via an aggregator function, <a class="reference internal" href="gearman_worker_define_function.html#c.gearman_aggregator_fn" title="gearman_aggregator_fn"><tt class="xref c c-type docutils literal"><span class="pre">gearman_aggregator_fn</span></tt></a>, and return a result.</p>
+<p>If any of the units of work error, the job will be aborted. The resulting value will be stored in the <a class="reference internal" href="gearman_task_st.html#c.gearman_task_st" title="gearman_task_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_task_st</span></tt></a>.</p>
+<p>The result can be obtained from the task by calling
+<a class="reference internal" href="gearman_result_t.html#c.gearman_task_result" title="gearman_task_result"><tt class="xref c c-func docutils literal"><span class="pre">gearman_task_result()</span></tt></a> to gain the <a class="reference internal" href="gearman_result_t.html#c.gearman_result_st" title="gearman_result_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_result_st</span></tt></a>.</p>
+</div>
+<div class="section" id="return-value">
+<h2>RETURN VALUE<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#c.gearman_execute" title="gearman_execute"><tt class="xref c c-func docutils literal"><span class="pre">gearman_execute()</span></tt></a> returns a c:type:<cite>gearman_task_st</cite>.</p>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="cm">/*</span>
+<span class="cm">  Example code to show how to send a string to a function called &quot;reverse&quot; and print the results.</span>
+<span class="cm">*/</span>
+
+<span class="cm">/*</span>
+<span class="cm"># Gearman server and library</span>
+<span class="cm"># Copyright (C) 2012 Data Differential, http://datadifferential.com/</span>
+<span class="cm"># All rights reserved.</span>
+<span class="cm">#</span>
+<span class="cm"># Use and distribution licensed under the BSD license.  See</span>
+<span class="cm"># the COPYING file in this directory for full text.</span>
+<span class="cm">*/</span>
+
+<span class="cp">#include &lt;string.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;libgearman/gearman.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">gearman_client_st</span> <span class="o">*</span><span class="n">client</span><span class="o">=</span> <span class="n">gearman_client_create</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+
+  <span class="kt">gearman_return_t</span> <span class="n">ret</span><span class="o">=</span> <span class="n">gearman_client_add_server</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">gearman_failed</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kt">gearman_argument_t</span> <span class="n">value</span><span class="o">=</span> <span class="n">gearman_argument_make</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;Reverse Me&quot;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="s">&quot;Reverse Me&quot;</span><span class="p">));</span>
+
+  <span class="n">gearman_task_st</span> <span class="o">*</span><span class="n">task</span><span class="o">=</span> <span class="n">gearman_execute</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> 
+                                         <span class="s">&quot;reverse&quot;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="s">&quot;reverse&quot;</span><span class="p">),</span>  <span class="c1">// function</span>
+                                         <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="c1">// no unique value provided</span>
+                                         <span class="nb">NULL</span><span class="p">,</span> 
+                                         <span class="o">&amp;</span><span class="n">value</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">task</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="c1">// If gearman_execute() can return NULL on error</span>
+  <span class="p">{</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Error: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">gearman_client_error</span><span class="p">(</span><span class="n">client</span><span class="p">));</span>
+    <span class="n">gearman_client_free</span><span class="p">(</span><span class="n">client</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Make sure the task was run successfully</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">gearman_success</span><span class="p">(</span><span class="n">gearman_task_return</span><span class="p">(</span><span class="n">task</span><span class="p">)))</span>
+  <span class="p">{</span>
+    <span class="c1">// Make use of value</span>
+    <span class="n">gearman_result_st</span> <span class="o">*</span><span class="n">result</span><span class="o">=</span> <span class="n">gearman_task_result</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%.*s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">gearman_result_size</span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="n">gearman_result_value</span><span class="p">(</span><span class="n">result</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="n">gearman_client_free</span><span class="p">(</span><span class="n">client</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="home">
+<h2>HOME<a class="headerlink" href="#home" title="Permalink to this headline">¶</a></h2>
+<p>To find out more information please check:
+<a class="reference external" href="http://gearman.info/">http://gearman.info/</a></p>
+</div>
+<div class="section" id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><em class="manpage">gearmand(8)</em> <em class="manpage">libgearman(3)</em></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Executing Work</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#return-value">RETURN VALUE</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#home">HOME</a></li>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gearman_client_do_background.html"
+                        title="previous chapter">Issuing a single background task</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gearman_client_error.html"
+                        title="next chapter">Errors reported to the client</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gearman_client_error.html" title="Errors reported to the client"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gearman_client_do_background.html" title="Issuing a single background task"
+             >previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Libgearman</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

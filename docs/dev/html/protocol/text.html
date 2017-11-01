@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Gearmand TEXT Protocol &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="../index.html" />
+    <link rel="next" title="Changelog" href="../changes.html" />
+    <link rel="prev" title="GEAR, The Gearman Binary Protocol" href="gear.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../changes.html" title="Changelog"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gear.html" title="GEAR, The Gearman Binary Protocol"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="gearmand-text-protocol">
+<h1>Gearmand TEXT Protocol<a class="headerlink" href="#gearmand-text-protocol" title="Permalink to this headline">¶</a></h1>
+<p>Gearmand supports a very simple administrative protocol that is enabled on the same port used by GEAR. You can make use of it via the gearadmin tool.</p>
+<p>The following list represents the current list of commands supported. You can issue any of these by telneting to the port and typing them in.</p>
+<dl class="describe">
+<dt>
+<tt class="descname">workers</tt></dt>
+<dd><p>Return the status of all attached workers.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">status</tt></dt>
+<dd><p>Return the status of all current jobs.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">cancel job</tt></dt>
+<dd><p>Cancel a job that has been queued.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">show jobs</tt></dt>
+<dd><p>Show all current job ids.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">show unique jobs</tt></dt>
+<dd><p>List all of the unique job ids that the server currently is processesing or waiting to process.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">create</tt></dt>
+<dd><p>Create a function (i.e. queue).</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">drop</tt></dt>
+<dd><p>Drop a function (i.e. queue).</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">maxqueue</tt></dt>
+<dd><p>Set maxqueue</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">getpid</tt></dt>
+<dd><p>Return the process id of the server.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">verbose</tt></dt>
+<dd><p>Change the verbose level of the server.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">version</tt></dt>
+<dd><p>Version number of server.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gear.html"
+                        title="previous chapter">GEAR, The Gearman Binary Protocol</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../changes.html"
+                        title="next chapter">Changelog</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../changes.html" title="Changelog"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gear.html" title="GEAR, The Gearman Binary Protocol"
+             >previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

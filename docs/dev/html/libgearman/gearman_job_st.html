@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Job (gearman_job_st) &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="../index.html" />
+    <link rel="up" title="Libgearman" href="index.html" />
+    <link rel="next" title="Task (gearman_task_st)" href="gearman_task_st.html" />
+    <link rel="prev" title="Client (gearman_client_st)" href="gearman_client_st.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gearman_task_st.html" title="Task (gearman_task_st)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gearman_client_st.html" title="Client (gearman_client_st)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Libgearman</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="job-gearman-job-st">
+<h1>Job (gearman_job_st)<a class="headerlink" href="#job-gearman-job-st" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p>#include &lt;libgearman/gearman.h&gt;</p>
+<dl class="type">
+<dt id="c.gearman_job_st">
+<tt class="descname">gearman_job_st</tt><a class="headerlink" href="#c.gearman_job_st" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_job_free">
+void <tt class="descname">gearman_job_free</tt><big>(</big><a class="reference internal" href="#c.gearman_job_st" title="gearman_job_st">gearman_job_st</a><em>&nbsp;*job</em><big>)</big><a class="headerlink" href="#c.gearman_job_free" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_job_send_data">
+<a class="reference internal" href="gearman_return_t.html#c.gearman_return_t" title="gearman_return_t">gearman_return_t</a> <tt class="descname">gearman_job_send_data</tt><big>(</big><a class="reference internal" href="#c.gearman_job_st" title="gearman_job_st">gearman_job_st</a><em>&nbsp;*job</em>, const void<em>&nbsp;*data</em>, size_t<em>&nbsp;data_size</em><big>)</big><a class="headerlink" href="#c.gearman_job_send_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_job_send_warning">
+<a class="reference internal" href="gearman_return_t.html#c.gearman_return_t" title="gearman_return_t">gearman_return_t</a> <tt class="descname">gearman_job_send_warning</tt><big>(</big><a class="reference internal" href="#c.gearman_job_st" title="gearman_job_st">gearman_job_st</a><em>&nbsp;*job</em>, const void<em>&nbsp;*warning</em>, size_t<em>&nbsp;warning_size</em><big>)</big><a class="headerlink" href="#c.gearman_job_send_warning" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_job_send_status">
+<a class="reference internal" href="gearman_return_t.html#c.gearman_return_t" title="gearman_return_t">gearman_return_t</a> <tt class="descname">gearman_job_send_status</tt><big>(</big><a class="reference internal" href="#c.gearman_job_st" title="gearman_job_st">gearman_job_st</a><em>&nbsp;*job</em>, <a class="reference internal" href="types.html#c.uint32_t" title="uint32_t">uint32_t</a><em>&nbsp;numerator</em>, <a class="reference internal" href="types.html#c.uint32_t" title="uint32_t">uint32_t</a><em>&nbsp;denominator</em><big>)</big><a class="headerlink" href="#c.gearman_job_send_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_job_send_complete">
+<a class="reference internal" href="gearman_return_t.html#c.gearman_return_t" title="gearman_return_t">gearman_return_t</a> <tt class="descname">gearman_job_send_complete</tt><big>(</big><a class="reference internal" href="#c.gearman_job_st" title="gearman_job_st">gearman_job_st</a><em>&nbsp;*job</em>, const void<em>&nbsp;*result</em>, size_t<em>&nbsp;result_size</em><big>)</big><a class="headerlink" href="#c.gearman_job_send_complete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_job_send_exception">
+<a class="reference internal" href="gearman_return_t.html#c.gearman_return_t" title="gearman_return_t">gearman_return_t</a> <tt class="descname">gearman_job_send_exception</tt><big>(</big><a class="reference internal" href="#c.gearman_job_st" title="gearman_job_st">gearman_job_st</a><em>&nbsp;*job</em>, const void<em>&nbsp;*exception</em>, size_t<em>&nbsp;exception_size</em><big>)</big><a class="headerlink" href="#c.gearman_job_send_exception" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_job_send_fail">
+<a class="reference internal" href="gearman_return_t.html#c.gearman_return_t" title="gearman_return_t">gearman_return_t</a> <tt class="descname">gearman_job_send_fail</tt><big>(</big><a class="reference internal" href="#c.gearman_job_st" title="gearman_job_st">gearman_job_st</a><em>&nbsp;*job</em><big>)</big><a class="headerlink" href="#c.gearman_job_send_fail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_job_handle">
+const char *<tt class="descname">gearman_job_handle</tt><big>(</big>const <a class="reference internal" href="#c.gearman_job_st" title="gearman_job_st">gearman_job_st</a><em>&nbsp;*job</em><big>)</big><a class="headerlink" href="#c.gearman_job_handle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_job_function_name">
+const char *<tt class="descname">gearman_job_function_name</tt><big>(</big>const <a class="reference internal" href="#c.gearman_job_st" title="gearman_job_st">gearman_job_st</a><em>&nbsp;*job</em><big>)</big><a class="headerlink" href="#c.gearman_job_function_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_job_unique">
+const char *<tt class="descname">gearman_job_unique</tt><big>(</big>const <a class="reference internal" href="#c.gearman_job_st" title="gearman_job_st">gearman_job_st</a><em>&nbsp;*job</em><big>)</big><a class="headerlink" href="#c.gearman_job_unique" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_job_workload">
+const void *<tt class="descname">gearman_job_workload</tt><big>(</big>const <a class="reference internal" href="#c.gearman_job_st" title="gearman_job_st">gearman_job_st</a><em>&nbsp;*job</em><big>)</big><a class="headerlink" href="#c.gearman_job_workload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_job_workload_size">
+size_t <tt class="descname">gearman_job_workload_size</tt><big>(</big>const <a class="reference internal" href="#c.gearman_job_st" title="gearman_job_st">gearman_job_st</a><em>&nbsp;*job</em><big>)</big><a class="headerlink" href="#c.gearman_job_workload_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_job_take_workload">
+void *<tt class="descname">gearman_job_take_workload</tt><big>(</big><a class="reference internal" href="#c.gearman_job_st" title="gearman_job_st">gearman_job_st</a><em>&nbsp;*job</em>, size_t<em>&nbsp;*data_size</em><big>)</big><a class="headerlink" href="#c.gearman_job_take_workload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_job_use_client">
+<a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a> *<tt class="descname">gearman_job_use_client</tt><big>(</big><a class="reference internal" href="#c.gearman_job_st" title="gearman_job_st">gearman_job_st</a><em>&nbsp;*job</em><big>)</big><a class="headerlink" href="#c.gearman_job_use_client" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Link with -lgearman</p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#c.gearman_job_st" title="gearman_job_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_job_st</span></tt></a> are passed to worker functions to represent jobs that are being run by <a class="reference internal" href="gearman_worker_st.html#c.gearman_worker_work" title="gearman_worker_work"><tt class="xref c c-func docutils literal"><span class="pre">gearman_worker_work()</span></tt></a>.</p>
+<p><a class="reference internal" href="#c.gearman_job_free" title="gearman_job_free"><tt class="xref c c-func docutils literal"><span class="pre">gearman_job_free()</span></tt></a> is used to free a job. This only needs to be
+done if a task was created with a preallocated structure.</p>
+<p><a class="reference internal" href="#c.gearman_job_handle" title="gearman_job_handle"><tt class="xref c c-func docutils literal"><span class="pre">gearman_job_handle()</span></tt></a> returns the job handle(see <a class="reference internal" href="gearman_job_handle_t.html#c.gearman_job_handle_t" title="gearman_job_handle_t"><tt class="xref c c-type docutils literal"><span class="pre">gearman_job_handle_t</span></tt></a> for more information).</p>
+<p><a class="reference internal" href="#c.gearman_job_function_name" title="gearman_job_function_name"><tt class="xref c c-func docutils literal"><span class="pre">gearman_job_function_name()</span></tt></a> return the name of the function that the
+job was set to execute against.</p>
+<p><a class="reference internal" href="#c.gearman_job_unique" title="gearman_job_unique"><tt class="xref c c-func docutils literal"><span class="pre">gearman_job_unique()</span></tt></a> return the unique value that was used for <a class="reference internal" href="#c.gearman_job_st" title="gearman_job_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_job_st</span></tt></a>.</p>
+<p>gearman_job_take_workload returns the <a class="reference internal" href="#c.gearman_job_st" title="gearman_job_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_job_st</span></tt></a> workload. The size of it can be determined with <a class="reference internal" href="#c.gearman_job_workload_size" title="gearman_job_workload_size"><tt class="xref c c-func docutils literal"><span class="pre">gearman_job_workload_size()</span></tt></a>.
+<a class="reference internal" href="#c.gearman_job_take_workload" title="gearman_job_take_workload"><tt class="xref c c-func docutils literal"><span class="pre">gearman_job_take_workload()</span></tt></a> is the same as <a class="reference internal" href="#c.gearman_job_workload" title="gearman_job_workload"><tt class="xref c c-func docutils literal"><span class="pre">gearman_job_workload()</span></tt></a> with the exception that the result must be
+<em class="manpage">free(3)</em> by the caller.</p>
+<p>gearman_job_use_client returns a <a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_client_st</span></tt></a> configured from gearman_job_st. The gearman_client_st can be used to communicate client API commands to the server.
+You do not, and should not, call <a class="reference internal" href="gearman_client.html#c.gearman_client_free" title="gearman_client_free"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_free()</span></tt></a> on the gearman_client_st. It is cleaned up when job is cleaned up.</p>
+</div>
+<div class="section" id="return-value">
+<h2>RETURN VALUE<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h2>
+<p>A value of <a class="reference internal" href="gearman_return_t.html#c.gearman_return_t" title="gearman_return_t"><tt class="xref c c-type docutils literal"><span class="pre">gearman_return_t</span></tt></a>  is returned.  On success that value
+will be :c:type::<cite>GEARMAN_SUCCESS</cite>.  Use <a class="reference internal" href="gearman_return_t.html#c.gearman_strerror" title="gearman_strerror"><tt class="xref c c-func docutils literal"><span class="pre">gearman_strerror()</span></tt></a> to
+translate this value to a printable string.</p>
+</div>
+<div class="section" id="home">
+<h2>HOME<a class="headerlink" href="#home" title="Permalink to this headline">¶</a></h2>
+<p>To find out more information please check:
+<a class="reference external" href="http://gearman.info/">http://gearman.info/</a></p>
+</div>
+<div class="section" id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><em class="manpage">gearmand(8)</em> <em class="manpage">libgearman(3)</em></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Job (gearman_job_st)</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#return-value">RETURN VALUE</a></li>
+<li><a class="reference internal" href="#home">HOME</a></li>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gearman_client_st.html"
+                        title="previous chapter">Client (gearman_client_st)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gearman_task_st.html"
+                        title="next chapter">Task (gearman_task_st)</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gearman_task_st.html" title="Task (gearman_task_st)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gearman_client_st.html" title="Client (gearman_client_st)"
+             >previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Libgearman</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

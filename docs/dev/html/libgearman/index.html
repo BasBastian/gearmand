@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Libgearman &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="../index.html" />
+    <link rel="next" title="Worker Basics" href="workers.html" />
+    <link rel="prev" title="Gearman Admin Tool" href="../bin/gearadmin.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="workers.html" title="Worker Basics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../bin/gearadmin.html" title="Gearman Admin Tool"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="libgearman">
+<h1>Libgearman<a class="headerlink" href="#libgearman" title="Permalink to this headline">¶</a></h1>
+<p><cite>libgearman</cite> is a small, thread-safe client library for the
+gearman protocol. The code has all been written with an eye to allow
+for both web and embedded usage. It handles the work behind routing
+particular keys to specific servers that you specify (and values are
+matched based on server order as supplied by you). It implements both
+the <a class="reference internal" href="../glossary.html#term-client"><em class="xref std std-term">client</em></a> and <a class="reference internal" href="../glossary.html#term-worker"><em class="xref std std-term">worker</em></a> interfaces.</p>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="workers.html">Worker Basics</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">libgearman examples</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="client-functions">
+<h2>Client Functions<a class="headerlink" href="#client-functions" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gearman_client.html">Creating a Gearman Client Connections</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_client_add_server.html">Adding Servers</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_client_options.html">Setting Options</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_client_do.html">Issuing a single request</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_client_do_background.html">Issuing a single background task</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_execute.html">Executing Work</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_client_error.html">Errors reported to the client</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_client_set_log_fn.html">Logging Workers</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_client_job_status.html">Retrieving the status of a job</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="creating-tasks">
+<h2>Creating Tasks<a class="headerlink" href="#creating-tasks" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gearman_client_add_task.html">Creating tasks</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_client_run_tasks.html">Running tasks</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_client_add_task_background.html">Creating background tasks</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_client_add_task_status.html">Adding a task to monitor a previously created task</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="worker-functions">
+<h2>Worker Functions<a class="headerlink" href="#worker-functions" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gearman_worker_create.html">Creating Gearman Worker Connections</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_worker_add_server.html">Adding Servers</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_worker_options.html">Worker Options</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_worker_add_function.html">Create a function with a callback</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_worker_define_function.html">Creating workers with gearman_worker_define_function()</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_worker_error.html">Errors returned to the worker</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_worker_set_log_fn.html">Logging Clients and Workers</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_worker_set_identifier.html">Setting a worker&#8217;s identifier</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="misc">
+<h2>Misc<a class="headerlink" href="#misc" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gearman_misc_functions.html">Misc libgearman Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gearman_parse_servers.html">Parsing server lists</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gearman_bugreport.html">gearman_bugreport()</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gearman_version.html">gearman_version()</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">Using namespaces</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_client_wait.html">Sleeping until client is has I/O.</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_client_echo.html">Testing Clients and Workers</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="structures">
+<h2>Structures<a class="headerlink" href="#structures" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gearman_client_st.html">Client (gearman_client_st)</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_job_st.html">Job (gearman_job_st)</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_task_st.html">Task (gearman_task_st)</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_worker_st.html">Worker (gearman_worker_st)</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_job_handle_t.html">Job handle (gearman_job_handle_t)</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_argument_t.html">Arguments (gearman_argument_t)</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_string_t.html">Strings (gearman_string_t)</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_result_t.html">Arguments (gearman_result_st)</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_task_attr_t.html">Describing Workload (gearman_work_t)</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gearman_allocator_t.html">Defining custom allocators (gearman_allocator_t)</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_return_t.html">Error Codes (gearman_return_t)</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_actions_t.html">Client callbacks (gearman_actions_t)</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_log_fn.html">Logging callback (gearman_log_fn)</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gearman_verbose_t.html">Verbose levels for logs (gearman_verbose_t)</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="extra">
+<h2>Extra<a class="headerlink" href="#extra" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="error_descriptions.html">List of client/worker errors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_SUCCESS.html">GEARMAN_SUCCESS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_IO_WAIT.html">GEARMAN_IO_WAIT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_SHUTDOWN.html">GEARMAN_SHUTDOWN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_SHUTDOWN_GRACEFUL.html">GEARMAN_SHUTDOWN_GRACEFUL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_ERRNO.html">GEARMAN_ERRNO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_EVENT.html">GEARMAN_EVENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_TOO_MANY_ARGS.html">GEARMAN_TOO_MANY_ARGS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_NO_ACTIVE_FDS.html">GEARMAN_NO_ACTIVE_FDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_INVALID_MAGIC.html">GEARMAN_INVALID_MAGIC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_INVALID_COMMAND.html">GEARMAN_INVALID_COMMAND</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_INVALID_PACKET.html">GEARMAN_INVALID_PACKET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_UNEXPECTED_PACKET.html">GEARMAN_UNEXPECTED_PACKET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_GETADDRINFO.html">GEARMAN_GETADDRINFO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_NO_SERVERS.html">GEARMAN_NO_SERVERS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_LOST_CONNECTION.html">GEARMAN_LOST_CONNECTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_MEMORY_ALLOCATION_FAILURE.html">GEARMAN_MEMORY_ALLOCATION_FAILURE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_JOB_EXISTS.html">GEARMAN_JOB_EXISTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_JOB_QUEUE_FULL.html">GEARMAN_JOB_QUEUE_FULL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_SERVER_ERROR.html">GEARMAN_SERVER_ERROR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_WORK_ERROR.html">GEARMAN_WORK_ERROR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_WORK_DATA.html">GEARMAN_WORK_DATA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_WORK_WARNING.html">GEARMAN_WORK_WARNING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_WORK_STATUS.html">GEARMAN_WORK_STATUS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_WORK_EXCEPTION.html">GEARMAN_WORK_EXCEPTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_WORK_FAIL.html">GEARMAN_WORK_FAIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_NOT_CONNECTED.html">GEARMAN_NOT_CONNECTED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_COULD_NOT_CONNECT.html">GEARMAN_COULD_NOT_CONNECT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_SEND_IN_PROGRESS.html">GEARMAN_SEND_IN_PROGRESS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_RECV_IN_PROGRESS.html">GEARMAN_RECV_IN_PROGRESS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_NOT_FLUSHING.html">GEARMAN_NOT_FLUSHING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_DATA_TOO_LARGE.html">GEARMAN_DATA_TOO_LARGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_INVALID_FUNCTION_NAME.html">GEARMAN_INVALID_FUNCTION_NAME</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_INVALID_WORKER_FUNCTION.html">GEARMAN_INVALID_WORKER_FUNCTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_NO_REGISTERED_FUNCTION.html">GEARMAN_NO_REGISTERED_FUNCTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_NO_REGISTERED_FUNCTIONS.html">GEARMAN_NO_REGISTERED_FUNCTIONS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_NO_JOBS.html">GEARMAN_NO_JOBS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_ECHO_DATA_CORRUPTION.html">GEARMAN_ECHO_DATA_CORRUPTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_NEED_WORKLOAD_FN.html">GEARMAN_NEED_WORKLOAD_FN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_PAUSE.html">GEARMAN_PAUSE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_UNKNOWN_STATE.html">GEARMAN_UNKNOWN_STATE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_PTHREAD.html">GEARMAN_PTHREAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_PIPE_EOF.html">GEARMAN_PIPE_EOF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_QUEUE_ERROR.html">GEARMAN_QUEUE_ERROR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_FLUSH_DATA.html">GEARMAN_FLUSH_DATA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_SEND_BUFFER_TOO_SMALL.html">GEARMAN_SEND_BUFFER_TOO_SMALL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_IGNORE_PACKET.html">GEARMAN_IGNORE_PACKET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_UNKNOWN_OPTION.html">GEARMAN_UNKNOWN_OPTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_TIMEOUT.html">GEARMAN_TIMEOUT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_ARGUMENT_TOO_LARGE.html">GEARMAN_ARGUMENT_TOO_LARGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_INVALID_ARGUMENT.html">GEARMAN_INVALID_ARGUMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_IN_PROGRESS.html">GEARMAN_IN_PROGRESS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_FATAL.html">GEARMAN_FATAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_FAIL.html">GEARMAN_FATAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_ERROR.html">GEARMAN_ERROR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors/GEARMAN_MAX_RETURN.html">GEARMAN_MAX_RETURN</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Required C types</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Libgearman</a><ul>
+<li><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#client-functions">Client Functions</a></li>
+<li><a class="reference internal" href="#creating-tasks">Creating Tasks</a></li>
+<li><a class="reference internal" href="#worker-functions">Worker Functions</a></li>
+<li><a class="reference internal" href="#misc">Misc</a></li>
+<li><a class="reference internal" href="#structures">Structures</a></li>
+<li><a class="reference internal" href="#types">Types</a></li>
+<li><a class="reference internal" href="#extra">Extra</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../bin/gearadmin.html"
+                        title="previous chapter">Gearman Admin Tool</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="workers.html"
+                        title="next chapter">Worker Basics</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="workers.html" title="Worker Basics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../bin/gearadmin.html" title="Gearman Admin Tool"
+             >previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

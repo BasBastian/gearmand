@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Worker Basics &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="../index.html" />
+    <link rel="up" title="Libgearman" href="index.html" />
+    <link rel="next" title="libgearman examples" href="examples.html" />
+    <link rel="prev" title="Libgearman" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="examples.html" title="libgearman examples"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Libgearman"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Libgearman</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="worker-basics">
+<h1>Worker Basics<a class="headerlink" href="#worker-basics" title="Permalink to this headline">¶</a></h1>
+<p>Workers take &#8220;work&#8221; in the form of messages sent by clients to the server. Clients call workers via a call to a &#8220;function&#8221;. Whether or not message content is provided to the &#8220;function&#8221; is entirely left to the design of the end user. Message content is limited to ~4gigs (though the practical size is based on the amount of memory available to the server, so this number is likely to be much smaller).</p>
+<p>The server takes the work sent to it, and then passes it along to the first available worker to process. The work then returns a response in a single message, or it sends the message as &#8220;chunks&#8221; to the client. Clients by default receive messages as a single reply, so no work is needed to support &#8220;chunked&#8221; replies. A worker does not have to send a message in response, it can just return whether or not the work was carried out.</p>
+<p>As of 0.32 the following are the responses from a worker that is supported:</p>
+<p><a class="reference internal" href="gearman_return_t.html#c.GEARMAN_SUCCESS" title="GEARMAN_SUCCESS"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_SUCCESS</span></tt></a></p>
+<p>On success the client is sent the result, and the work is marked as successfully completed.</p>
+<p><a class="reference internal" href="gearman_return_t.html#c.GEARMAN_FAIL" title="GEARMAN_FAIL"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_FAIL</span></tt></a></p>
+<p>Of fail the server will report to the client that an error occurred and the work will not be retried. No result will be sent to the client.</p>
+<p><a class="reference internal" href="gearman_return_t.html#c.GEARMAN_ERROR" title="GEARMAN_ERROR"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_ERROR</span></tt></a></p>
+<p>On error the server will retry the work, until job retries occurs (ie gearmand &#8211;job-retries=#)</p>
+<p><a class="reference internal" href="gearman_return_t.html#c.GEARMAN_SHUTDOWN" title="GEARMAN_SHUTDOWN"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_SHUTDOWN</span></tt></a></p>
+<p>A shutdown message causes gearman_worker_work exit from its loop. The client is sent <a class="reference internal" href="gearman_return_t.html#c.GEARMAN_SUCCESS" title="GEARMAN_SUCCESS"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_SUCCESS</span></tt></a>, and the result is sent to the client.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Libgearman</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="examples.html"
+                        title="next chapter">libgearman examples</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="examples.html" title="libgearman examples"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Libgearman"
+             >previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Libgearman</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

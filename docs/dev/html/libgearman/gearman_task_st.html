@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Task (gearman_task_st) &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="../index.html" />
+    <link rel="up" title="Libgearman" href="index.html" />
+    <link rel="next" title="Worker (gearman_worker_st)" href="gearman_worker_st.html" />
+    <link rel="prev" title="Job (gearman_job_st)" href="gearman_job_st.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gearman_worker_st.html" title="Worker (gearman_worker_st)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gearman_job_st.html" title="Job (gearman_job_st)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Libgearman</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="task-gearman-task-st">
+<h1>Task (gearman_task_st)<a class="headerlink" href="#task-gearman-task-st" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p>#include &lt;libgearman/gearman.h&gt;</p>
+<dl class="type">
+<dt id="c.gearman_task_st">
+<tt class="descname">gearman_task_st</tt><a class="headerlink" href="#c.gearman_task_st" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_task_free">
+void <tt class="descname">gearman_task_free</tt><big>(</big><a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a><em>&nbsp;*task</em><big>)</big><a class="headerlink" href="#c.gearman_task_free" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_task_context">
+void *<tt class="descname">gearman_task_context</tt><big>(</big>const <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a><em>&nbsp;*task</em><big>)</big><a class="headerlink" href="#c.gearman_task_context" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_task_set_context">
+void <tt class="descname">gearman_task_set_context</tt><big>(</big><a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a><em>&nbsp;*task</em>, void<em>&nbsp;*context</em><big>)</big><a class="headerlink" href="#c.gearman_task_set_context" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_task_function_name">
+const char *<tt class="descname">gearman_task_function_name</tt><big>(</big>const <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a><em>&nbsp;*task</em><big>)</big><a class="headerlink" href="#c.gearman_task_function_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_task_unique">
+const char *<tt class="descname">gearman_task_unique</tt><big>(</big>const <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a><em>&nbsp;*task</em><big>)</big><a class="headerlink" href="#c.gearman_task_unique" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_task_job_handle">
+const char *<tt class="descname">gearman_task_job_handle</tt><big>(</big>const <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a><em>&nbsp;*task</em><big>)</big><a class="headerlink" href="#c.gearman_task_job_handle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_task_is_known">
+<a class="reference internal" href="types.html#c.bool" title="bool">bool</a> <tt class="descname">gearman_task_is_known</tt><big>(</big>const <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a><em>&nbsp;*task</em><big>)</big><a class="headerlink" href="#c.gearman_task_is_known" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_task_is_running">
+<a class="reference internal" href="types.html#c.bool" title="bool">bool</a> <tt class="descname">gearman_task_is_running</tt><big>(</big>const <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a><em>&nbsp;*task</em><big>)</big><a class="headerlink" href="#c.gearman_task_is_running" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_task_numerator">
+<a class="reference internal" href="types.html#c.uint32_t" title="uint32_t">uint32_t</a> <tt class="descname">gearman_task_numerator</tt><big>(</big>const <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a><em>&nbsp;*task</em><big>)</big><a class="headerlink" href="#c.gearman_task_numerator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_task_denominator">
+<a class="reference internal" href="types.html#c.uint32_t" title="uint32_t">uint32_t</a> <tt class="descname">gearman_task_denominator</tt><big>(</big>const <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a><em>&nbsp;*task</em><big>)</big><a class="headerlink" href="#c.gearman_task_denominator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_task_give_workload">
+void <tt class="descname">gearman_task_give_workload</tt><big>(</big><a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a><em>&nbsp;*task</em>, const void<em>&nbsp;*workload</em>, size_t<em>&nbsp;workload_size</em><big>)</big><a class="headerlink" href="#c.gearman_task_give_workload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_task_send_workload">
+size_t <tt class="descname">gearman_task_send_workload</tt><big>(</big><a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a><em>&nbsp;*task</em>, const void<em>&nbsp;*workload</em>, size_t<em>&nbsp;workload_size</em>, <a class="reference internal" href="gearman_return_t.html#c.gearman_return_t" title="gearman_return_t">gearman_return_t</a><em>&nbsp;*ret_ptr</em><big>)</big><a class="headerlink" href="#c.gearman_task_send_workload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_task_data">
+const void *<tt class="descname">gearman_task_data</tt><big>(</big>const <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a><em>&nbsp;*task</em><big>)</big><a class="headerlink" href="#c.gearman_task_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_task_data_size">
+size_t <tt class="descname">gearman_task_data_size</tt><big>(</big>const <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a><em>&nbsp;*task</em><big>)</big><a class="headerlink" href="#c.gearman_task_data_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_task_take_data">
+void *<tt class="descname">gearman_task_take_data</tt><big>(</big><a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a><em>&nbsp;*task</em>, size_t<em>&nbsp;*data_size</em><big>)</big><a class="headerlink" href="#c.gearman_task_take_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_task_recv_data">
+size_t <tt class="descname">gearman_task_recv_data</tt><big>(</big><a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a><em>&nbsp;*task</em>, void<em>&nbsp;*data</em>, size_t<em>&nbsp;data_size</em>, <a class="reference internal" href="gearman_return_t.html#c.gearman_return_t" title="gearman_return_t">gearman_return_t</a><em>&nbsp;*ret_ptr</em><big>)</big><a class="headerlink" href="#c.gearman_task_recv_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_task_error">
+const char *<tt class="descname">gearman_task_error</tt><big>(</big>const <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a><em>&nbsp;*task</em><big>)</big><a class="headerlink" href="#c.gearman_task_error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.21.</span></p>
+</div>
+<dl class="function">
+<dt id="c.gearman_task_return">
+<a class="reference internal" href="gearman_return_t.html#c.gearman_return_t" title="gearman_return_t">gearman_return_t</a> <tt class="descname">gearman_task_return</tt><big>(</big>const <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st">gearman_task_st</a><em>&nbsp;*task</em><big>)</big><a class="headerlink" href="#c.gearman_task_return" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.21.</span></p>
+</div>
+<p>Link with -lgearman</p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>A <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_task_st</span></tt></a> represents a <a class="reference internal" href="../glossary.html#term-task"><em class="xref std std-term">task</em></a>.  Work that is sent by a <a class="reference internal" href="../glossary.html#term-client"><em class="xref std std-term">client</em></a> to a gearman server is seen as a task (a <a class="reference internal" href="../glossary.html#term-worker"><em class="xref std std-term">worker</em></a> receives a task in the form of a <a class="reference internal" href="../glossary.html#term-job"><em class="xref std std-term">job</em></a>.</p>
+<p>Tasks, i.e. <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_task_st</span></tt></a> are created by calling either <a class="reference internal" href="gearman_execute.html#c.gearman_execute" title="gearman_execute"><tt class="xref c c-func docutils literal"><span class="pre">gearman_execute()</span></tt></a>, <a class="reference internal" href="gearman_client_add_task.html#c.gearman_client_add_task" title="gearman_client_add_task"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_add_task()</span></tt></a>, or <a class="reference internal" href="gearman_client_add_task_background.html#c.gearman_client_add_task_background" title="gearman_client_add_task_background"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_add_task_background()</span></tt></a>.</p>
+<p><a class="reference internal" href="gearman_client_add_task_status.html#c.gearman_client_add_task_status" title="gearman_client_add_task_status"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_add_task_status()</span></tt></a> can also create <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_task_st</span></tt></a>, these tasks will be used to
+monitor a previously created <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_task_st</span></tt></a>.</p>
+<p><a class="reference internal" href="#c.gearman_task_free" title="gearman_task_free"><tt class="xref c c-func docutils literal"><span class="pre">gearman_task_free()</span></tt></a> is used to free a task. This only needs to be
+done if a task was created with a preallocated structure or if you want to clean up the memory of a specific task.</p>
+<p><a class="reference internal" href="#c.gearman_task_set_context" title="gearman_task_set_context"><tt class="xref c c-func docutils literal"><span class="pre">gearman_task_set_context()</span></tt></a> sets the given context of the <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_task_st</span></tt></a>. The context can be used to pass information to a <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_task_st</span></tt></a>.</p>
+<p><a class="reference internal" href="#c.gearman_task_context" title="gearman_task_context"><tt class="xref c c-func docutils literal"><span class="pre">gearman_task_context()</span></tt></a> returns the context that was used in the creation of the <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_task_st</span></tt></a> (or that was set with <a class="reference internal" href="#c.gearman_task_set_context" title="gearman_task_set_context"><tt class="xref c c-func docutils literal"><span class="pre">gearman_task_set_context()</span></tt></a>.</p>
+<p><a class="reference internal" href="#c.gearman_task_data" title="gearman_task_data"><tt class="xref c c-func docutils literal"><span class="pre">gearman_task_data()</span></tt></a> returns the current data that has been returned to the task. <a class="reference internal" href="#c.gearman_task_data_size" title="gearman_task_data_size"><tt class="xref c c-func docutils literal"><span class="pre">gearman_task_data_size()</span></tt></a> will give you the size of the value. <a class="reference internal" href="#c.gearman_task_take_data" title="gearman_task_take_data"><tt class="xref c c-func docutils literal"><span class="pre">gearman_task_take_data()</span></tt></a> is the same as <a class="reference internal" href="#c.gearman_task_data" title="gearman_task_data"><tt class="xref c c-func docutils literal"><span class="pre">gearman_task_data()</span></tt></a> but the value that is returned must be freed by the client (<em class="manpage">free(3)</em>). <a class="reference internal" href="#c.gearman_task_recv_data" title="gearman_task_recv_data"><tt class="xref c c-func docutils literal"><span class="pre">gearman_task_recv_data()</span></tt></a> can be used with pre-allocated buffers.</p>
+<p><a class="reference internal" href="#c.gearman_task_is_known" title="gearman_task_is_known"><tt class="xref c c-func docutils literal"><span class="pre">gearman_task_is_known()</span></tt></a>, <a class="reference internal" href="#c.gearman_task_is_running" title="gearman_task_is_running"><tt class="xref c c-func docutils literal"><span class="pre">gearman_task_is_running()</span></tt></a>, <a class="reference internal" href="#c.gearman_task_numerator" title="gearman_task_numerator"><tt class="xref c c-func docutils literal"><span class="pre">gearman_task_numerator()</span></tt></a>, and <a class="reference internal" href="#c.gearman_task_denominator" title="gearman_task_denominator"><tt class="xref c c-func docutils literal"><span class="pre">gearman_task_denominator()</span></tt></a>, return values related to the last status update that was made to the <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_task_st</span></tt></a>. They do not cause the <a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_task_st</span></tt></a> to update itself.</p>
+<p><a class="reference internal" href="#c.gearman_task_error" title="gearman_task_error"><tt class="xref c c-func docutils literal"><span class="pre">gearman_task_error()</span></tt></a> return the last error message that the
+<a class="reference internal" href="#c.gearman_task_st" title="gearman_task_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_task_st</span></tt></a> encountered. <a class="reference internal" href="#c.gearman_task_return" title="gearman_task_return"><tt class="xref c c-func docutils literal"><span class="pre">gearman_task_return()</span></tt></a>
+return the last <a class="reference internal" href="gearman_return_t.html#c.gearman_return_t" title="gearman_return_t"><tt class="xref c c-type docutils literal"><span class="pre">gearman_return_t</span></tt></a> stored. A value of
+<a class="reference internal" href="gearman_return_t.html#c.GEARMAN_UNKNOWN_STATE" title="GEARMAN_UNKNOWN_STATE"><tt class="xref c c-type docutils literal"><span class="pre">GEARMAN_UNKNOWN_STATE</span></tt></a> means that the task has not been submitted to
+server yet, or that no function was available if the job has been submitted.</p>
+</div>
+<div class="section" id="return-value">
+<h2>RETURN VALUE<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h2>
+<p>Various. Values that are returned by <a class="reference internal" href="#c.gearman_task_take_data" title="gearman_task_take_data"><tt class="xref c c-func docutils literal"><span class="pre">gearman_task_take_data()</span></tt></a> must have <em class="manpage">free(3)</em> called on them.</p>
+</div>
+<div class="section" id="home">
+<h2>HOME<a class="headerlink" href="#home" title="Permalink to this headline">¶</a></h2>
+<p>To find out more information please check:
+<a class="reference external" href="http://gearman.info/">http://gearman.info/</a></p>
+</div>
+<div class="section" id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><em class="manpage">gearmand(8)</em> <em class="manpage">libgearman(3)</em></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Task (gearman_task_st)</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#return-value">RETURN VALUE</a></li>
+<li><a class="reference internal" href="#home">HOME</a></li>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gearman_job_st.html"
+                        title="previous chapter">Job (gearman_job_st)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gearman_worker_st.html"
+                        title="next chapter">Worker (gearman_worker_st)</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gearman_worker_st.html" title="Worker (gearman_worker_st)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gearman_job_st.html" title="Job (gearman_job_st)"
+             >previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Libgearman</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

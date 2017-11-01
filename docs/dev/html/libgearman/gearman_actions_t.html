@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Client callbacks (gearman_actions_t) &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="../index.html" />
+    <link rel="up" title="Libgearman" href="index.html" />
+    <link rel="next" title="Logging callback (gearman_log_fn)" href="gearman_log_fn.html" />
+    <link rel="prev" title="Error Codes (gearman_return_t)" href="gearman_return_t.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gearman_log_fn.html" title="Logging callback (gearman_log_fn)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gearman_return_t.html" title="Error Codes (gearman_return_t)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Libgearman</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="client-callbacks-gearman-actions-t">
+<h1>Client callbacks (gearman_actions_t)<a class="headerlink" href="#client-callbacks-gearman-actions-t" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p>#include &lt;libgearman/gearman.h&gt;</p>
+<dl class="type">
+<dt id="c.gearman_actions_t">
+<tt class="descname">gearman_actions_t</tt><a class="headerlink" href="#c.gearman_actions_t" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="c.gearman_workload_fn">
+<tt class="descname">gearman_workload_fn</tt><a class="headerlink" href="#c.gearman_workload_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="c.gearman_created_fn">
+<tt class="descname">gearman_created_fn</tt><a class="headerlink" href="#c.gearman_created_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="c.gearman_data_fn">
+<tt class="descname">gearman_data_fn</tt><a class="headerlink" href="#c.gearman_data_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="c.gearman_warning_fn">
+<tt class="descname">gearman_warning_fn</tt><a class="headerlink" href="#c.gearman_warning_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="c.gearman_universal_status_fn">
+<tt class="descname">gearman_universal_status_fn</tt><a class="headerlink" href="#c.gearman_universal_status_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="c.gearman_exception_fn">
+<tt class="descname">gearman_exception_fn</tt><a class="headerlink" href="#c.gearman_exception_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="c.gearman_fail_fn">
+<tt class="descname">gearman_fail_fn</tt><a class="headerlink" href="#c.gearman_fail_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="c.gearman_complete_fn">
+<tt class="descname">gearman_complete_fn</tt><a class="headerlink" href="#c.gearman_complete_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_client_set_workload_fn">
+void <tt class="descname">gearman_client_set_workload_fn</tt><big>(</big><a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a><em>&nbsp;*client</em>, <a class="reference internal" href="#c.gearman_workload_fn" title="gearman_workload_fn">gearman_workload_fn</a><em>&nbsp;*function</em><big>)</big><a class="headerlink" href="#c.gearman_client_set_workload_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_client_set_created_fn">
+void <tt class="descname">gearman_client_set_created_fn</tt><big>(</big><a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a><em>&nbsp;*client</em>, <a class="reference internal" href="#c.gearman_created_fn" title="gearman_created_fn">gearman_created_fn</a><em>&nbsp;*function</em><big>)</big><a class="headerlink" href="#c.gearman_client_set_created_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_client_set_data_fn">
+void <tt class="descname">gearman_client_set_data_fn</tt><big>(</big><a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a><em>&nbsp;*client</em>, <a class="reference internal" href="#c.gearman_data_fn" title="gearman_data_fn">gearman_data_fn</a><em>&nbsp;*function</em><big>)</big><a class="headerlink" href="#c.gearman_client_set_data_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_client_set_warning_fn">
+void <tt class="descname">gearman_client_set_warning_fn</tt><big>(</big><a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a><em>&nbsp;*client</em>, <a class="reference internal" href="#c.gearman_warning_fn" title="gearman_warning_fn">gearman_warning_fn</a><em>&nbsp;*function</em><big>)</big><a class="headerlink" href="#c.gearman_client_set_warning_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_client_set_status_fn">
+void <tt class="descname">gearman_client_set_status_fn</tt><big>(</big><a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a><em>&nbsp;*client</em>, <a class="reference internal" href="#c.gearman_universal_status_fn" title="gearman_universal_status_fn">gearman_universal_status_fn</a><em>&nbsp;*function</em><big>)</big><a class="headerlink" href="#c.gearman_client_set_status_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_client_set_complete_fn">
+void <tt class="descname">gearman_client_set_complete_fn</tt><big>(</big><a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a><em>&nbsp;*client</em>, <a class="reference internal" href="#c.gearman_complete_fn" title="gearman_complete_fn">gearman_complete_fn</a><em>&nbsp;*function</em><big>)</big><a class="headerlink" href="#c.gearman_client_set_complete_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_client_set_exception_fn">
+void <tt class="descname">gearman_client_set_exception_fn</tt><big>(</big><a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a><em>&nbsp;*client</em>, <a class="reference internal" href="#c.gearman_exception_fn" title="gearman_exception_fn">gearman_exception_fn</a><em>&nbsp;*function</em><big>)</big><a class="headerlink" href="#c.gearman_client_set_exception_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_client_set_fail_fn">
+void <tt class="descname">gearman_client_set_fail_fn</tt><big>(</big><a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a><em>&nbsp;*client</em>, <a class="reference internal" href="#c.gearman_fail_fn" title="gearman_fail_fn">gearman_fail_fn</a><em>&nbsp;*function</em><big>)</big><a class="headerlink" href="#c.gearman_client_set_fail_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_client_clear_fn">
+void <tt class="descname">gearman_client_clear_fn</tt><big>(</big><a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a><em>&nbsp;*client</em><big>)</big><a class="headerlink" href="#c.gearman_client_clear_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_client_do_job_handle">
+const char *<tt class="descname">gearman_client_do_job_handle</tt><big>(</big><a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a><em>&nbsp;*client</em><big>)</big><a class="headerlink" href="#c.gearman_client_do_job_handle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Link to -lgearman</p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Callbacks for client execution task states.</p>
+<p><a class="reference internal" href="#c.gearman_client_set_data_fn" title="gearman_client_set_data_fn"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_set_data_fn()</span></tt></a> sets the callback function that will
+be called if server is to make a request to the client to provide more data.</p>
+<p><a class="reference internal" href="#c.gearman_client_do_job_handle" title="gearman_client_do_job_handle"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_do_job_handle()</span></tt></a> gest the job handle for the running task. This should be used between repeated
+<a class="reference internal" href="gearman_client_do.html#c.gearman_client_do" title="gearman_client_do"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_do()</span></tt></a> (and related) calls to get information.</p>
+<p><a class="reference internal" href="#c.gearman_client_clear_fn" title="gearman_client_clear_fn"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_clear_fn()</span></tt></a> can be called to remove all existing
+<a class="reference internal" href="#c.gearman_actions_t" title="gearman_actions_t"><tt class="xref c c-type docutils literal"><span class="pre">gearman_actions_t</span></tt></a> that have been set.</p>
+<p><a class="reference internal" href="#c.gearman_client_set_created_fn" title="gearman_client_set_created_fn"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_set_created_fn()</span></tt></a>,
+<a class="reference internal" href="#c.gearman_client_set_data_fn" title="gearman_client_set_data_fn"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_set_data_fn()</span></tt></a>,
+<a class="reference internal" href="#c.gearman_client_set_warning_fn" title="gearman_client_set_warning_fn"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_set_warning_fn()</span></tt></a>,
+<a class="reference internal" href="#c.gearman_client_set_status_fn" title="gearman_client_set_status_fn"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_set_status_fn()</span></tt></a>,
+<a class="reference internal" href="#c.gearman_client_set_complete_fn" title="gearman_client_set_complete_fn"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_set_complete_fn()</span></tt></a>,
+<a class="reference internal" href="#c.gearman_client_set_exception_fn" title="gearman_client_set_exception_fn"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_set_exception_fn()</span></tt></a>, and
+<a class="reference internal" href="#c.gearman_client_set_fail_fn" title="gearman_client_set_fail_fn"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_set_fail_fn()</span></tt></a>, set callback functions for the
+different states of execution for a client request. Each request, ie
+a creation of <a class="reference internal" href="gearman_task_st.html#c.gearman_task_st" title="gearman_task_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_task_st</span></tt></a>, keeps a copy of callbacks when it
+is created.</p>
+<p><a class="reference internal" href="#c.gearman_client_set_exception_fn" title="gearman_client_set_exception_fn"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_set_exception_fn()</span></tt></a> will only be called if exceptions are enabled on the server. You can do this by calling <tt class="xref c c-func docutils literal"><span class="pre">gearman_client_set_server_option()</span></tt>.</p>
+<p>An example of this:</p>
+<div class="highlight-python"><div class="highlight"><pre>const char *EXCEPTIONS=&quot;exceptions&quot;;
+gearman_client_set_server_option(client, EXCEPTIONS, strlen(EXCEPTIONS));
+</pre></div>
+</div>
+</div>
+<div class="section" id="return-value">
+<h2>RETURN VALUE<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h2>
+<p>None</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><em class="manpage">gearmand(8)</em> <em class="manpage">libgearman(3)</em> <em class="manpage">gearman_client_error(3)</em> or <em class="manpage">gearman_worker_error(3)</em></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Client callbacks (gearman_actions_t)</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#return-value">RETURN VALUE</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gearman_return_t.html"
+                        title="previous chapter">Error Codes (gearman_return_t)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gearman_log_fn.html"
+                        title="next chapter">Logging callback (gearman_log_fn)</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gearman_log_fn.html" title="Logging callback (gearman_log_fn)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gearman_return_t.html" title="Error Codes (gearman_return_t)"
+             >previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Libgearman</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

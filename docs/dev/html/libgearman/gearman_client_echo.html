@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Testing Clients and Workers &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="../index.html" />
+    <link rel="up" title="Libgearman" href="index.html" />
+    <link rel="next" title="Client (gearman_client_st)" href="gearman_client_st.html" />
+    <link rel="prev" title="Sleeping until client is has I/O." href="gearman_client_wait.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gearman_client_st.html" title="Client (gearman_client_st)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gearman_client_wait.html" title="Sleeping until client is has I/O."
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Libgearman</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="testing-clients-and-workers">
+<h1>Testing Clients and Workers<a class="headerlink" href="#testing-clients-and-workers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p>#include &lt;libgearman/gearman.h&gt;</p>
+<dl class="function">
+<dt id="c.gearman_client_echo">
+<a class="reference internal" href="gearman_return_t.html#c.gearman_return_t" title="gearman_return_t">gearman_return_t</a> <tt class="descname">gearman_client_echo</tt><big>(</big><a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a><em>&nbsp;*client</em>, const void<em>&nbsp;*workload</em>, size_t<em>&nbsp;workload_size</em><big>)</big><a class="headerlink" href="#c.gearman_client_echo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_worker_echo">
+<a class="reference internal" href="gearman_return_t.html#c.gearman_return_t" title="gearman_return_t">gearman_return_t</a> <tt class="descname">gearman_worker_echo</tt><big>(</big><a class="reference internal" href="gearman_worker_st.html#c.gearman_worker_st" title="gearman_worker_st">gearman_worker_st</a><em>&nbsp;*worker</em>, const void<em>&nbsp;*workload</em>, size_t<em>&nbsp;workload_size</em><big>)</big><a class="headerlink" href="#c.gearman_worker_echo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#c.gearman_client_echo" title="gearman_client_echo"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_echo()</span></tt></a> and <a class="reference internal" href="#c.gearman_worker_echo" title="gearman_worker_echo"><tt class="xref c c-func docutils literal"><span class="pre">gearman_worker_echo()</span></tt></a> send a message to a <strong class="program">gearmand</strong> server. The server will then respond with the message that it sent. These commands are just for testing the connection to the servers that were configure for the <a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_client_st</span></tt></a> and the <a class="reference internal" href="gearman_worker_st.html#c.gearman_worker_st" title="gearman_worker_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_worker_st</span></tt></a> that were used.</p>
+</div>
+<div class="section" id="return-value">
+<h2>RETURN VALUE<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="gearman_return_t.html#c.gearman_return_t" title="gearman_return_t"><tt class="xref c c-type docutils literal"><span class="pre">gearman_return_t</span></tt></a></p>
+</div>
+<div class="section" id="home">
+<h2>HOME<a class="headerlink" href="#home" title="Permalink to this headline">¶</a></h2>
+<p>To find out more information please check:
+<a class="reference external" href="http://gearman.info/">http://gearman.info/</a></p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><em class="manpage">gearmand(8)</em> <em class="manpage">libgearman(3)</em></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Testing Clients and Workers</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#return-value">RETURN VALUE</a></li>
+<li><a class="reference internal" href="#home">HOME</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gearman_client_wait.html"
+                        title="previous chapter">Sleeping until client is has I/O.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gearman_client_st.html"
+                        title="next chapter">Client (gearman_client_st)</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gearman_client_st.html" title="Client (gearman_client_st)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gearman_client_wait.html" title="Sleeping until client is has I/O."
+             >previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Libgearman</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

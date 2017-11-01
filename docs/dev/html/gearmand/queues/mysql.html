@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MySQL &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="../../index.html" />
+    <link rel="up" title="Durable Queues" href="../queues.html" />
+    <link rel="next" title="Postgres" href="postgres.html" />
+    <link rel="prev" title="Drizzle" href="drizzle.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="postgres.html" title="Postgres"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="drizzle.html" title="Drizzle"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="../queues.html" accesskey="U">Durable Queues</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="mysql">
+<h1>MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h1>
+<p>The current schema, as of .21 is:</p>
+<div class="highlight-python"><div class="highlight"><pre>CREATE TABLE &lt;table&gt; ( unique_key VARCHAR(GEARMAN_UNIQUE_SIZE),
+                       function_name VARCHAR(255),
+                       priority INT,
+                       data LONGBLOB,
+                       when_to_run BIGINT,
+                       unique key (unique_key, function_name));
+</pre></div>
+</div>
+<p>The MySQL server communicates via the libdrizzle library. As of version 0.35 there is now a native MySQL queue that makes use of libmysql.</p>
+<p>To launch Gearman with MySQL support, you need to specify the following options:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">gearmand</span>  <span class="o">--</span><span class="n">queue</span><span class="o">-</span><span class="nb">type</span><span class="o">=</span><span class="n">MySQL</span> \
+          <span class="o">--</span><span class="n">mysql</span><span class="o">-</span><span class="n">host</span><span class="o">=</span><span class="n">localhost</span> \
+          <span class="o">--</span><span class="n">mysql</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mi">3306</span> \
+          <span class="o">--</span><span class="n">mysql</span><span class="o">-</span><span class="n">user</span><span class="o">=</span><span class="n">gearman</span> \
+          <span class="o">--</span><span class="n">mysql</span><span class="o">-</span><span class="n">password</span><span class="o">=</span><span class="n">your_pw</span> \
+          <span class="o">--</span><span class="n">mysql</span><span class="o">-</span><span class="n">db</span><span class="o">=</span><span class="n">gearman</span> \
+          <span class="o">--</span><span class="n">mysql</span><span class="o">-</span><span class="n">table</span><span class="o">=</span><span class="n">gearman_queue</span>
+</pre></div>
+</div>
+<p>You will need to make sure that the appropriate permissions are setup for the user that you use. Gearman will handle the creation of the table when it first starts up.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="drizzle.html"
+                        title="previous chapter">Drizzle</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="postgres.html"
+                        title="next chapter">Postgres</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="postgres.html" title="Postgres"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="drizzle.html" title="Drizzle"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="../queues.html" >Durable Queues</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

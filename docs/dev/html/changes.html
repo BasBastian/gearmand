@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Changelog &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="index.html" />
+    <link rel="next" title="Gearman Client/Worker Library" href="libgearman.html" />
+    <link rel="prev" title="Gearmand TEXT Protocol" href="protocol/text.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="libgearman.html" title="Gearman Client/Worker Library"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="protocol/text.html" title="Gearmand TEXT Protocol"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Gearmand 6668028 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="changelog">
+<span id="changes"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<p>This is the hand-created ChangeLog used prior to v1.1.3. Please refer to git
+log for changes after that.</p>
+<p>1.1.12 Sun Feb  9 04:27:38 PST 2014
+* GEARMAN_SERVERS environmental variable for libgearman to pick up servers to
+communicate with. This means that any driver now linked with libgearman will
+be able to handle multiple servers.
+* Add INFO level messages for queue creation.</p>
+<p>1.1.11 Thu Oct  3 04:38:47 EDT 2013
+* Workers which return a bad gearman_return_t will be counted as an error by the server and not a final (i.e. they will be retried).
+* Fixed possible bug where the server would over count the number of NOOP sent if NOOP messages did not get sent.</p>
+<p>1.1.10 Mon Sep 16 04:20:13 CDT 2013
+* Added gearman_job_use_client()
+* Improve compile time.
+* Fix for NOOP failure (bad worker causes early exit of loop).
+* Fix for postgres (use INFORMATION_SCHEMA).
+* Added gearman_client_has_active_tasks() so that you can see if a client has active tasks that it is working on.</p>
+<p>1.1.9 Fri Aug  2 02:39:25 EDT 2013
+* Added gearman_task_is_finished()
+* Improved SSL support.
+* Exceptions are now supported.
+* gearmand excepts its root CA via the environmental variable GEARMAND_PORT.
+* libgearman will now except GEARMAND_CA_CERTIFICATE, GEARMAN_CLIENT_PEM, and GEARMAN_CLIENT_KEY</p>
+<p>1.1.8 Thu Jun  6 18:47:01 EDT 2013
+* Postgres test case now passes.
+* SSL support added.
+* OSX fixes.</p>
+<p>1.1.7 Mon May  6 06:46:20 EDT 2013
+* Cleanup of error codes returned by gearmand.
+* gearmand will now set its port from the env variable GEARMAND_PORT.
+* Fix issue where identifier might not be set correctly on reconnect.</p>
+<p>1.1.6 Tue Apr 16 03:29:57 EDT 2013
+* Merge of 1.0.4 tree
+* Added support for gearadmin to &#8220;cancel&#8221; a job.
+* Keep-alive support for gearmand has been extended (more options to control behavior).
+* Fixed issues related to clients who didn&#8217;t really support exceptions being passed exceptions.</p>
+<p>1.1.5 Mon Feb  4 00:59:19 EST 2013
+* Rollup of bug fixes for 1.0.3
+* &#8211;threads=0 for gearmand will now result in gearmand using all available cores.</p>
+<p>1.1.4 Mon Dec 17 21:24:16 EST 2012
+* Add GEARMAN_CLIENT_GENERATE_UNIQUE, with default set to not generate.
+* Experimental addition to queue service which will allow a queue to be stored on shutdown (&#8211;libsqlite3-store-on-shutdown).
+* Rollup of all changes in 1.0.2</p>
+<p>1.1.3 Wed Nov  7 22:48:21 EST 2012
+* Merge with 1.0.1</p>
+<p>1.1.2 Fri Oct 12 05:34:29 EDT 2012
+* Merge with 0.41</p>
+<p>1.1.1 Wed Sep 19 22:04:56 EDT 2012
+* Merge with 0.39</p>
+<p>1.1.0 Wed Sep  5 08:33:37 PDT 2012
+* Fix for ABI compatibility issues.</p>
+<p>1.0.6 Mon May  6 02:48:30 EDT 2013
+* strlen() of zero on name passed for instance did not result in a connection to localhost (which the php driver thought would happen).
+* Fix regression in log not updating time on all platforms.
+* Fix issue where pecl php wasn&#8217;t passing a null string to get default host.</p>
+<p>1.0.5 Mon Apr 15 06:36:05 EDT 2013
+* Fix for log_fn</p>
+<p>1.0.4 Never Released
+* Added &#8211;coredump flag to gearmand
+* Removed result type enum, since the structure is never exposed to the user this was of limited use.
+* Assorted bug fixes.</p>
+<p>1.0.3 Sun Feb  3 21:05:52 EST 2013
+* Allow for a longer set of retries if port is in use when the server starts up.
+* Added checking for valgrind sgcheck
+* Fedora 18 fixes.</p>
+<p>1.0.2 Mon Dec 17 07:24:42 EST 2012
+* Add &#8211;expceptions to Gearmand to enable exceptions by default
+* Backtraces on some types of crashes.
+* Add GEARMAN_CLIENT_GENERATE_UNIQUE.
+* If the unique value passed to any client function is &#8220;#&#8221; then the unique value will be derived by hashing the workload that is being supplied to the function.
+* Optimize status requests so that they exit as soon as request is received.
+* Fix test case results for FreeBSD.</p>
+<p>1.0.1 Tue Nov  6 01:07:07 EST 2012
+* Stable branch labeled as 1.0
+* Update all build related files.
+* Add a few additional platforms to the supported list.</p>
+<p>0.41 Fri Oct 12 05:34:29 EDT 2012
+* Switched from &#8211;having-debug to &#8211;enable-debug
+* Fix for SQLITE, it wasn&#8217;t replaying its queue on startup.
+* More testing done now on durable queues.</p>
+<p>0.39 Wed Sep 19 03:36:06 EDT 2012
+* Added gearman_job_error() interface.
+* gearman_client_errno() and gearman_worker_errno() now return EINVAL if client or worker is invalid.</p>
+<p>0.38 Fri Sep 14 02:16:01 EDT 2012
+* Updates for compiling on different platforms.
+* UUID portability fixes.</p>
+<p>0.37 Sun Sep  2 22:51:08 EDT 2012
+* Fix compiler issues around older compilers. Bug 1039629.</p>
+<p>0.36 Sat Aug 18 16:57:13 EDT 2012
+* Fix issue where sqlite was not correctly being shutdown.
+* Check for more warnings (and cleanup found from).
+* Fix thread safety issue for uuid_generate().</p>
+<p>0.35 Sun Aug  5 16:03:21 EDT 2012
+* Critical bug fix for rare case in which initialization of pipe for a worker fails.
+* Add support for MySQL specific driver to specify port.
+* Fix library issue with OSX Mountain Lion.</p>
+<p>0.34 Tue Jul 10 21:19:10 EDT 2012
+* Alpha support for direct MySQL queue.
+* XML option for testing under valgrind.
+* gearmand now allows for a user to specify the format for the server key
+* First pass support for checking status via unique value.</p>
+<p>0.33 Thu May  3 22:09:29 PDT 2012
+* Add &#8211;config-file option
+* Additional testing for Drizzle
+* Fix for OSX 10.6.8 compile issue.</p>
+<p>0.32 Wed Apr 11 02:25:38 PDT 2012
+* Fix for shutdown bug.</p>
+<p>0.31 Sat Apr  7 11:56:58 PDT 2012
+* Fixes for bugs 975591, 974712, 970828, 967859, 967463,
+* Valgrind fix around epoch retry.
+* Numerous issues cleaned up around bouncing server during testing.</p>
+<p>0.29 Tue Mar 13 22:58:16 PDT 2012
+* Additional Fixes for Postgres
+* Additional debug calls in server via tuneable logging.
+* Documentation update.
+* Fixes for Ubuntu 11.10</p>
+<p>0.28 Thu Jan 26 22:43:46 PST 2012
+* -v has been deprecated because of parsing issues. Please use &#8211;verbose instead
+* &#8211;log-file=stderr will set output to stderr.
+* Fix for gearman.spec file for rpm build.</p>
+<p>0.27 Mon Jan  9 20:02:16 PST 2012
+* Fix for TokyoCabinet
+* Build updates for building on Ubuntu</p>
+<p>0.26 Wed Nov 30 09:25:49 PST 2011
+* Completed support for syslog for gearmand
+* Fix libdrizzle issues
+* Add API for killing a worker.</p>
+<dl class="docutils">
+<dt>0.25 Thu Nov  3 09:18:46 PDT 2011</dt>
+<dd><ul class="first last simple">
+<li>1.0 libgearman API extracted.</li>
+<li>Fix for long function names.</li>
+<li>Fix for Worker consuming CPU by hanging.</li>
+<li>TokyoCabinet build fix.</li>
+<li>Fix for 32bit fix.</li>
+</ul>
+</dd>
+<dt>0.24 Sun Jul 24 20:57:02 PDT 2011</dt>
+<dd><ul class="first last simple">
+<li>Minor bug fixes.</li>
+<li>Updated test framework.</li>
+<li>make fixes for Fedora.</li>
+</ul>
+</dd>
+<dt>0.23 Wed Jun 29 13:26:26 PDT 2011</dt>
+<dd><ul class="first last simple">
+<li>Defined workers can now return GEARMAN_SHUTDOWN.</li>
+<li>Benchmark worker can now be told to shutdown.</li>
+<li>Allocator code has been cleaned up (gearman_allocator_t).</li>
+<li>Added &#8220;workers&#8221; option to gearadmin</li>
+<li>Workers will now default to -1 as timeout (lowers CPU on gearmand server for non-active workers).</li>
+<li>SO_KEEPALIVE is now enabled on client/worker connections.</li>
+<li>By default, workers now grab the unique value of the job.</li>
+</ul>
+</dd>
+<dt>0.22 Sun Jun 19 20:32:18 PDT 2011</dt>
+<dd><ul class="first last simple">
+<li>Added gearman_work_map() for gearman_work_t describer.</li>
+<li>gearman_execute_by_partition() added.</li>
+<li>gearamn_task_attr_t added.</li>
+<li>Additional documentation update.</li>
+<li>Issue with PHP client using automated task free (Thanks Taneli Leppä!!)</li>
+<li>Fixed issue where PHP client&#8217;s custom allocator was free&#8217;ing memory that did not belong to it.</li>
+</ul>
+</dd>
+<dt>0.21 Wed Jun 15 21:01:04 PDT 2011</dt>
+<dd><ul class="first last simple">
+<li>Support for &#8220;drop function&#8221; in admin client</li>
+<li>Fixed issue where server would not report on a bad unique value due to size</li>
+<li>Forces do operations to complete no matter how the worker is designed.</li>
+<li>Tasks inherit actions from client, and use them throughout execution.</li>
+<li>Support for namespaces.</li>
+<li>gearman_worker_define_function() has been added. It allows jobs to map out work to other workers and then aggregate the results.</li>
+<li>gearman_client_run_tasks() will now reset the IO state for all connections on exit if all hosts have been marked down. The next call will check all hosts.</li>
+<li>Lots of bug fixes.</li>
+</ul>
+</dd>
+<dt>0.20 Fri Apr  8 09:25:15 PDT 2011</dt>
+<dd><ul class="first last simple">
+<li>gearman_client_execute() interface added</li>
+<li>New types of gearman_unique_t, gearman_function_st, gearman_workload_t</li>
+<li>Better error reporting from clients.</li>
+<li>Server no longer hangs because of bad job list.</li>
+<li>First bit of work on supporting epoch portion of protocol. John Ewart, <a class="reference external" href="mailto:john&#37;&#52;&#48;johnewart&#46;net">john<span>&#64;</span>johnewart<span>&#46;</span>net</a></li>
+<li>Improved error message handling in client.</li>
+<li>Updates for manpages.</li>
+</ul>
+</dd>
+<dt>0.19 Fri Apr  1 09:50:22 PDT 2011</dt>
+<dd><ul class="first last simple">
+<li>Fix bug where gearman util would create duplicate output.</li>
+<li>Update sqlite queue so that it uses a prepared statement.</li>
+<li>Fixes a number cases where server was not initializing default values internally correctly.</li>
+<li>gearman_client_compare()  API added. Returns true if the client connections are connects are equivalent.</li>
+</ul>
+</dd>
+<dt>0.18 Tue Mar 15 13:32:33 PDT 2011</dt>
+<dd><ul class="first last simple">
+<li>Bug fix for compile when no plugins are requested.</li>
+<li>Bug fix where during startup using Drizzle or MySQL the server could crash.</li>
+<li>Bug fix to make sure test programs will run if NULL sized objects are sent.</li>
+</ul>
+</dd>
+<dt>0.17 Tue Mar  8 08:27:04 PST 2011</dt>
+<dd><ul class="first last simple">
+<li>gearadmin added, easy access to shutdown, version, and verbose commands on the server.</li>
+<li>Bug fixes related to CLI.</li>
+<li>Bug fixes related to Memcached support.</li>
+<li>Bug fixes related to Drizzle support.</li>
+<li>Dependency on boost now required for build.</li>
+<li>Drizzle queue module expects that a schema named &#8220;gearmand&#8221; exists.</li>
+<li>Fix copyright headers were needed.</li>
+</ul>
+</dd>
+<dt>0.16 Tue Feb 22 10:55:33 PST 2011</dt>
+<dd><ul class="first last simple">
+<li>Fixed cases where silent failure of server for queues would not cause tests to fail.</li>
+<li>Fix for failure when setsockopt() failed on new connection.</li>
+<li>Fixed silen exit in client library based on signals.</li>
+<li>Error log now reports failure location in compiled code for ERROR conditions.</li>
+<li>Fix for failover.</li>
+<li>Fixed issue in client where it would silently die based on signal issues.</li>
+<li>&#8220;verbose&#8221; has been added to the string protocol. It allows you to see what the verbose setting is.</li>
+</ul>
+</dd>
+<dt>0.15 Mon Feb 14 18:44:32 PST 2011</dt>
+<dd><ul class="first last simple">
+<li>Numerous issues around overflow on buffers are now fixed.</li>
+<li>Updates on gearmand daemon to share a bit more code.</li>
+<li>Numerious fixes for gearman command line client.</li>
+<li>IPV6 fix for server.</li>
+</ul>
+</dd>
+<dt>0.14 Wed Jun 30 13:04:39 PDT 2010</dt>
+<dd><ul class="first last simple">
+<li>Leak in SQLite resolved.</li>
+<li>updated build configs</li>
+<li>Increased testting.</li>
+</ul>
+</dd>
+<dt>0.13 Sun Apr  4 14:45:08 PDT 2010</dt>
+<dd><ul class="first last simple">
+<li>Fix for bug #518512.</li>
+<li>Use OR REPLACE syntax for inserting items into the sqlite.</li>
+<li>Changed default bitfield optimize setting to only be off for Solaris.</li>
+<li>Refactoring on server.</li>
+<li>Various bug fixes as reported on mailing list, such as a bad return code and treating EHOSTDOWN as lost connection for FreeBSD.</li>
+<li>Fixed bug #543402 so jobs taking more than max job retries will be removed from persistentn queue as well.</li>
+<li>Check to make sure worker job results match assigned worker.</li>
+</ul>
+</dd>
+<dt>0.12 Thu Feb 18 11:28:49 PST 2010</dt>
+<dd><ul class="first last simple">
+<li>Fixed bug where memory loss occured if data was too large.</li>
+<li>Added gearman_strerror().</li>
+<li>Fixed bug where setting an option off in mass would not trip any triggers on the option (for both worker and client).</li>
+<li>Options that are internal can no longer be set by external callers.</li>
+<li>Deprecated gearman_client_set_event_watch_fn() and gearman_worker_set_event_watch_fn.</li>
+<li>gearman_job_handle() and gearman_job_function_name() now return const char* pointers</li>
+<li>gearman_worker_unregister now returns GEARMAN_NO_REGISTERED_FUNCTION if the function does not exist (or is being removed)</li>
+<li>Added gearman_worker_function_exist()</li>
+<li>Trying to send too large of a piece of data will result in GEARMAN_ARGUMENT_TOO_LARGE.</li>
+<li>Added support for gearmand command client to daemonize and create a pid file.</li>
+<li>Fixed job handle comparison bug with WORK_FAIL responses.</li>
+<li>Fixed disable assert configure option.</li>
+<li>Build system updates.</li>
+</ul>
+</dd>
+<dt>0.11 - 2009-11-30</dt>
+<dd><ul class="first last simple">
+<li>Added max wakeup-worker option to gearmand. Default is still to wakeup all.</li>
+<li>API and documentation cleanup.</li>
+<li>Fixed bug where task context free function was getting called for do() functions. This was PECL/Gearman bug #16899 as well.</li>
+<li>Fixed bug #458912, not flushing with multiple gearmands in client.</li>
+<li>Fixed PECL/Gearman bug #16847, was actually in C library and not in PHP.</li>
+<li>Fixed C++ build/test/ issue, updated pandora build system.</li>
+<li>Removed packet varargs function.</li>
+</ul>
+</dd>
+<dt>0.10 - 2009-09-28</dt>
+<dd><ul class="first last simple">
+<li>Added timeout option.</li>
+<li>Separated libgearman client/worker library from the server/gearmand code.</li>
+<li>Added server option for max job retry.</li>
+<li>Changed queue_libdrizzle to overwrite the password string to hide in ps.</li>
+<li>Worker unregister bug fixed. Bug #372074</li>
+<li>Added memory ownership functions so applications can pass control with tasks, jobs, and packets.</li>
+<li>Changed gearmand to remap stdio to /dev/null for detaching. Bug #407242</li>
+<li>Fixed bug that now allows workers to run concurrent jobs.</li>
+<li>Changed behavior of sending NOOPs to one per PRESLEEP, rather than only having one in the outgoing queue at any time.</li>
+<li>API cleanup to make the code more consistent and object-oriented.</li>
+<li>Added more documentation for base classes, client, and worker.</li>
+<li>Build system updates.</li>
+</ul>
+</dd>
+<dt>0.9 - 2009-07-20</dt>
+<dd><ul class="first last simple">
+<li>Added libsqlite3 persistent queue support (Cory Bennett).</li>
+<li>Added libpq (PostgreSQL) persistent queue support.</li>
+<li>Updated autoconf build system.</li>
+<li>Doxygen documentation cleanup.</li>
+<li>Bug fix in HTTP protocol module.</li>
+</ul>
+</dd>
+<dt>0.8 - 2009-06-30</dt>
+<dd><ul class="first last simple">
+<li>Added pluggable protocol support.</li>
+<li>Added basic HTTP protocol support.</li>
+<li>Updated autoconf build system.</li>
+<li>Renamed modconf to gearman_conf.</li>
+<li>Improved logging messages for gearmand.</li>
+<li>Removed all struct memsets and packed structs for better memory usage.</li>
+<li>Fixed client connect bug with multiple job servers.</li>
+<li>Fixed server spinning bug with long running jobs and large workloads.</li>
+</ul>
+</dd>
+<dt>0.7 - 2009-05-31</dt>
+<dd><ul class="first last simple">
+<li>Added libmodconf for config option processing. Eventually this will be split into a separate library. Updated gearmand and tests to use libmodconf.</li>
+<li>Fixed persistent queue bug where jobs were not removed after replay.</li>
+<li>Fix for bug #379198.</li>
+<li>Changed done() function for queue, function_name is now passed to it as well as unique.</li>
+<li>Fixed text protocol command response to be dynamic length.</li>
+<li>Fixed libevent usage to support libevent 1.1 (still used in CentOS and Suse).</li>
+<li>Added gearman_*_add_servers to client/worker interfaces for taking server lists.</li>
+</ul>
+</dd>
+<dt>0.6 - 2009-05-19</dt>
+<dd><ul class="first last simple">
+<li>Changed behavior so forground jobs are not run when their connected clients disconnect. This is how the Perl server behaves.</li>
+<li>Changed to named logging macros, making it easier for module writers to use.</li>
+<li>Added persistent queue support with a libdrizzle module. This allows queue storage for both Drizzle and MySQL.</li>
+<li>Added Solaris service scripts (Trond Norbye).</li>
+<li>Fixed rpm building (make rpm).</li>
+<li>Removed AI_V4MAPPED for client/worker connect lookup, not fully supported in all operating systems (like FreeBSD, bug #373060).</li>
+<li>Support for gearmand to bind to multiple addresses.</li>
+<li>Protocol document updates and fixes (Eric Day, Eric Herman).</li>
+<li>Bind to specific hostname in gearmand (Brian Moon).</li>
+<li>Minor cleanup and fixes.</li>
+</ul>
+</dd>
+<dt>0.5 - 2009-04-22</dt>
+<dd><ul class="first last simple">
+<li>Threaded Gearman job server (gearmand).</li>
+<li>More options to gearmand.</li>
+<li>OSX bug fixes related to poll().</li>
+<li>Fix for bug #357881.</li>
+<li>Man page rework.</li>
+</ul>
+</dd>
+<dt>0.4 - 2009-03-30</dt>
+<dd><ul class="first last simple">
+<li>New protocol additions such as UNIQ grab and assign for workers.</li>
+<li>Support for high priority background jobs (Brian Moon).</li>
+<li>Support for low priority jobs.</li>
+<li>New priority queue in server to support new protocol options.</li>
+<li>Reworked the unique ID checking in server.</li>
+<li>Added hooks to aid in client memory cleanup.</li>
+<li>Added gearman command line utility to allow you to use clients and workers from the shell.</li>
+<li>Build fixes (Monty Taylor).</li>
+<li>Basic init script added.</li>
+<li>Fixed getopt bugs with variable type and EOF.</li>
+</ul>
+</dd>
+<dt>0.3 - 2009-02-05</dt>
+<dd><ul class="first last simple">
+<li>Fixed I/O wait bug in packet parse.</li>
+<li>Switched to different autoconf library detection method.</li>
+<li>Added detach option to gearmand, can now run in background.</li>
+<li>Reworked much of the client code for better concurrency and efficiency.</li>
+<li>Added benchmark utilities.</li>
+<li>Added man pages.</li>
+<li>Changed port to new IANA assigned port, 4730.</li>
+</ul>
+</dd>
+<dt>0.2 - 2009-01-16</dt>
+<dd><ul class="first last simple">
+<li>Improved gearmand efficiency by tracking events and reducing syscalls.</li>
+<li>Reworked most of the worker code, it now reconnects to the job server.</li>
+<li>Added version/bugreport options to gearmand (Brian Moon).</li>
+<li>Fixed bug #315652, libevent usage.</li>
+</ul>
+</dd>
+<dt>0.1 - 2009-01-08</dt>
+<dd><ul class="first last simple">
+<li>First release.</li>
+</ul>
+</dd>
+</dl>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="protocol/text.html"
+                        title="previous chapter">Gearmand TEXT Protocol</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="libgearman.html"
+                        title="next chapter">Gearman Client/Worker Library</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="libgearman.html" title="Gearman Client/Worker Library"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="protocol/text.html" title="Gearmand TEXT Protocol"
+             >previous</a> |</li>
+        <li><a href="index.html">Gearmand 6668028 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>libgearman examples &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="../index.html" />
+    <link rel="up" title="Libgearman" href="index.html" />
+    <link rel="next" title="Creating a Gearman Client Connections" href="gearman_client.html" />
+    <link rel="prev" title="Worker Basics" href="workers.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gearman_client.html" title="Creating a Gearman Client Connections"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="workers.html" title="Worker Basics"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Libgearman</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="libgearman-examples">
+<h1>libgearman examples<a class="headerlink" href="#libgearman-examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="simple-gearman-execute">
+<h2>Simple gearman_execute()<a class="headerlink" href="#simple-gearman-execute" title="Permalink to this headline">¶</a></h2>
+<p>The following examples shows how to use <a class="reference internal" href="gearman_execute.html#c.gearman_execute" title="gearman_execute"><tt class="xref c c-func docutils literal"><span class="pre">gearman_execute()</span></tt></a> to request data be sent to a function named &#8220;reverse&#8221; and print out the values.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cm">/*</span>
+<span class="cm">  Example code to show how to send a string to a function called &quot;reverse&quot; and print the results.</span>
+<span class="cm">*/</span>
+
+<span class="cm">/*</span>
+<span class="cm"># Gearman server and library</span>
+<span class="cm"># Copyright (C) 2012 Data Differential, http://datadifferential.com/</span>
+<span class="cm"># All rights reserved.</span>
+<span class="cm">#</span>
+<span class="cm"># Use and distribution licensed under the BSD license.  See</span>
+<span class="cm"># the COPYING file in this directory for full text.</span>
+<span class="cm">*/</span>
+
+<span class="cp">#include &lt;string.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;libgearman/gearman.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">gearman_client_st</span> <span class="o">*</span><span class="n">client</span><span class="o">=</span> <span class="n">gearman_client_create</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+
+  <span class="kt">gearman_return_t</span> <span class="n">ret</span><span class="o">=</span> <span class="n">gearman_client_add_server</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">gearman_failed</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kt">gearman_argument_t</span> <span class="n">value</span><span class="o">=</span> <span class="n">gearman_argument_make</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;Reverse Me&quot;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="s">&quot;Reverse Me&quot;</span><span class="p">));</span>
+
+  <span class="n">gearman_task_st</span> <span class="o">*</span><span class="n">task</span><span class="o">=</span> <span class="n">gearman_execute</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> 
+                                         <span class="s">&quot;reverse&quot;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="s">&quot;reverse&quot;</span><span class="p">),</span>  <span class="c1">// function</span>
+                                         <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="c1">// no unique value provided</span>
+                                         <span class="nb">NULL</span><span class="p">,</span> 
+                                         <span class="o">&amp;</span><span class="n">value</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">task</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="c1">// If gearman_execute() can return NULL on error</span>
+  <span class="p">{</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Error: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">gearman_client_error</span><span class="p">(</span><span class="n">client</span><span class="p">));</span>
+    <span class="n">gearman_client_free</span><span class="p">(</span><span class="n">client</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Make sure the task was run successfully</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">gearman_success</span><span class="p">(</span><span class="n">gearman_task_return</span><span class="p">(</span><span class="n">task</span><span class="p">)))</span>
+  <span class="p">{</span>
+    <span class="c1">// Make use of value</span>
+    <span class="n">gearman_result_st</span> <span class="o">*</span><span class="n">result</span><span class="o">=</span> <span class="n">gearman_task_result</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%.*s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">gearman_result_size</span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="n">gearman_result_value</span><span class="p">(</span><span class="n">result</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="n">gearman_client_free</span><span class="p">(</span><span class="n">client</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="gearman-execute-with-reducer-function">
+<h2>gearman_execute() with reducer function<a class="headerlink" href="#gearman-execute-with-reducer-function" title="Permalink to this headline">¶</a></h2>
+<p>In this example we call the function count and tell it to map values using
+word_split.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cm">/*</span>
+<span class="cm">  Example code to show how to send a string to a function called &quot;word_split&quot;, reduce</span>
+<span class="cm">  each chunk with the function count, and then print the results.</span>
+<span class="cm">*/</span>
+
+<span class="cp">#include &lt;string.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;libgearman/gearman.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">gearman_client_st</span> <span class="o">*</span><span class="n">client</span><span class="o">=</span> <span class="n">gearman_client_create</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+
+  <span class="kt">gearman_return_t</span> <span class="n">ret</span><span class="o">=</span> <span class="n">gearman_client_add_server</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">gearman_failed</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kt">gearman_argument_t</span> <span class="n">value</span><span class="o">=</span> <span class="n">gearman_argument_make</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;this dog does not hunt&quot;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="s">&quot;this dog does not hunt&quot;</span><span class="p">));</span>
+
+  <span class="n">gearman_task_st</span> <span class="o">*</span><span class="n">task</span><span class="o">=</span> <span class="n">gearman_execute_by_partition</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> 
+                                                      <span class="s">&quot;word_split&quot;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="s">&quot;word_split&quot;</span><span class="p">),</span>
+                                                      <span class="s">&quot;count&quot;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="s">&quot;count&quot;</span><span class="p">),</span>  <span class="c1">// function</span>
+                                                      <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="c1">// no unique value provided</span>
+                                                      <span class="nb">NULL</span><span class="p">,</span>
+                                                      <span class="o">&amp;</span><span class="n">value</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">task</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="c1">// If gearman_execute() can return NULL on error</span>
+  <span class="p">{</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Error: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">gearman_client_error</span><span class="p">(</span><span class="n">client</span><span class="p">));</span>
+    <span class="n">gearman_client_free</span><span class="p">(</span><span class="n">client</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Make sure the task was run successfully</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">gearman_success</span><span class="p">(</span><span class="n">gearman_task_return</span><span class="p">(</span><span class="n">task</span><span class="p">)))</span>
+  <span class="p">{</span>
+    <span class="c1">// Make use of value</span>
+    <span class="n">gearman_result_st</span> <span class="o">*</span><span class="n">result</span><span class="o">=</span> <span class="n">gearman_task_result</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%.*s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">gearman_result_size</span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="n">gearman_result_value</span><span class="p">(</span><span class="n">result</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="n">gearman_client_free</span><span class="p">(</span><span class="n">client</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="simple-gearman-client-do">
+<h2>Simple gearman_client_do()<a class="headerlink" href="#simple-gearman-client-do" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="cm">/*</span>
+<span class="cm"># Gearman server and library</span>
+<span class="cm"># Copyright (C) 2012 Data Differential, http://datadifferential.com/</span>
+<span class="cm"># All rights reserved.</span>
+<span class="cm">#</span>
+<span class="cm"># Use and distribution licensed under the BSD license.  See</span>
+<span class="cm"># the COPYING file in this directory for full text.</span>
+<span class="cm">*/</span>
+
+<span class="cp">#include &lt;string.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;libgearman/gearman.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">gearman_client_st</span> <span class="o">*</span><span class="n">client</span><span class="o">=</span> <span class="n">gearman_client_create</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+
+  <span class="kt">gearman_return_t</span> <span class="n">ret</span><span class="o">=</span> <span class="n">gearman_client_add_server</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">gearman_failed</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kt">size_t</span> <span class="n">result_size</span><span class="p">;</span>
+  <span class="kt">gearman_return_t</span> <span class="n">rc</span><span class="p">;</span>
+  <span class="kt">void</span> <span class="o">*</span><span class="n">value</span><span class="o">=</span> <span class="n">gearman_client_do</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s">&quot;reverse_function&quot;</span><span class="p">,</span> <span class="s">&quot;unique_value&quot;</span><span class="p">,</span> 
+                                 <span class="s">&quot;my string to reverse&quot;</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="s">&quot;my string to reverse&quot;</span><span class="p">),</span> 
+                                 <span class="o">&amp;</span><span class="n">result_size</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rc</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">gearman_success</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="c1">// Make use of value</span>
+  <span class="p">}</span>
+  <span class="n">free</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+
+  <span class="n">gearman_client_free</span><span class="p">(</span><span class="n">client</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">libgearman examples</a><ul>
+<li><a class="reference internal" href="#simple-gearman-execute">Simple gearman_execute()</a></li>
+<li><a class="reference internal" href="#gearman-execute-with-reducer-function">gearman_execute() with reducer function</a></li>
+<li><a class="reference internal" href="#simple-gearman-client-do">Simple gearman_client_do()</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="workers.html"
+                        title="previous chapter">Worker Basics</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gearman_client.html"
+                        title="next chapter">Creating a Gearman Client Connections</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gearman_client.html" title="Creating a Gearman Client Connections"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="workers.html" title="Worker Basics"
+             >previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Libgearman</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

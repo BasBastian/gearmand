@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Server Options &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="index.html" />
+    <link rel="next" title="Durable Queues" href="gearmand/queues.html" />
+    <link rel="prev" title="Architecture" href="architecture.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gearmand/queues.html" title="Durable Queues"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="architecture.html" title="Architecture"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Gearmand 6668028 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="server-options">
+<h1>Server Options<a class="headerlink" href="#server-options" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>General options</strong></p>
+<dl class="option">
+<dt id="cmdoption-gearmand-b">
+<tt class="descname">-b</tt><tt class="descclassname"> [ --backlog ] arg (=32)</tt><a class="headerlink" href="#cmdoption-gearmand-b" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of backlog connections for listen.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand--check-args">
+<tt class="descname">--check-args</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption-gearmand--check-args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check command line and configuration file argments and then exit.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand-d">
+<tt class="descname">-d</tt><tt class="descclassname"> [ --daemon ]</tt><a class="headerlink" href="#cmdoption-gearmand-d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Daemon, detach and run in the background.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand-f">
+<tt class="descname">-f</tt><tt class="descclassname"> [ --file-descriptors ] arg</tt><a class="headerlink" href="#cmdoption-gearmand-f" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of file descriptors to allow for the process (total connections will be slightly less). Default is max allowed for user.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand-h">
+<tt class="descname">-h</tt><tt class="descclassname"> [ --help ]</tt><a class="headerlink" href="#cmdoption-gearmand-h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print this help menu.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand-j">
+<tt class="descname">-j</tt><tt class="descclassname"> [ --job-retries ] arg (=0)</tt><a class="headerlink" href="#cmdoption-gearmand-j" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of attempts to run the job before the job server removes it. This is helpful to ensure a bad job does not crash all available workers. Default is no limit.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand-l">
+<tt class="descname">-l</tt><tt class="descclassname"> [ --log-file ] arg</tt><a class="headerlink" href="#cmdoption-gearmand-l" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log file to write errors and information to.  Turning this option on also forces the first verbose level to be enabled.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand-L">
+<tt class="descname">-L</tt><tt class="descclassname"> [ --listen ] arg</tt><a class="headerlink" href="#cmdoption-gearmand-L" title="Permalink to this definition">¶</a></dt>
+<dd><p>Address the server should listen on. Default is INADDR_ANY.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand-p">
+<tt class="descname">-p</tt><tt class="descclassname"> [ --port ] arg (=4730)</tt><a class="headerlink" href="#cmdoption-gearmand-p" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port the server should listen on.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand-P">
+<tt class="descname">-P</tt><tt class="descclassname"> [ --pid-file ] arg</tt><a class="headerlink" href="#cmdoption-gearmand-P" title="Permalink to this definition">¶</a></dt>
+<dd><p>File to write process ID out to.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand-r">
+<tt class="descname">-r</tt><tt class="descclassname"> [ --protocol ] arg</tt><a class="headerlink" href="#cmdoption-gearmand-r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load protocol module.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand-R">
+<tt class="descname">-R</tt><tt class="descclassname"> [ --round-robin ]</tt><a class="headerlink" href="#cmdoption-gearmand-R" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign work in round-robin order per worker connection. The default is to assign work in the order of functions added by the worker.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand-q">
+<tt class="descname">-q</tt><tt class="descclassname"> [ --queue-type ] arg</tt><a class="headerlink" href="#cmdoption-gearmand-q" title="Permalink to this definition">¶</a></dt>
+<dd><p>Persistent queue type to use.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand-t">
+<tt class="descname">-t</tt><tt class="descclassname"> [ --threads ] arg (=4)</tt><a class="headerlink" href="#cmdoption-gearmand-t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of I/O threads to use. Default=4.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand-u">
+<tt class="descname">-u</tt><tt class="descclassname"> [ --user ] arg</tt><a class="headerlink" href="#cmdoption-gearmand-u" title="Permalink to this definition">¶</a></dt>
+<dd><p>Switch to given user after startup.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand-v">
+<tt class="descname">-v</tt><tt class="descclassname"> [ --verbose ] arg (=v)</tt><a class="headerlink" href="#cmdoption-gearmand-v" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increase verbosity level by one.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand-V">
+<tt class="descname">-V</tt><tt class="descclassname"> [ --version ]</tt><a class="headerlink" href="#cmdoption-gearmand-V" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the version of gearmand and exit.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand-w">
+<tt class="descname">-w</tt><tt class="descclassname"> [ --worker-wakeup ] arg (=0)</tt><a class="headerlink" href="#cmdoption-gearmand-w" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of workers to wakeup for each job received. The default is to wakeup all available workers.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand--keepalive">
+<tt class="descname">--keepalive</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption-gearmand--keepalive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable keepalive on sockets.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand--keepalive-idle">
+<tt class="descname">--keepalive-idle</tt><tt class="descclassname"> arg (=-1)</tt><a class="headerlink" href="#cmdoption-gearmand--keepalive-idle" title="Permalink to this definition">¶</a></dt>
+<dd><p>If keepalive is enabled, set the value for TCP_KEEPIDLE for systems that support it. A value of -1 means that either the system does not support it or an error occurred when trying to retrieve the default value.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand--keepalive-interval">
+<tt class="descname">--keepalive-interval</tt><tt class="descclassname"> arg (=-1)</tt><a class="headerlink" href="#cmdoption-gearmand--keepalive-interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>If keepalive is enabled, set the value for TCP_KEEPINTVL for systems that support it. A value of -1 means that either the system does not support it or an error occurred when trying to retrieve the default value.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand--keepalive-count">
+<tt class="descname">--keepalive-count</tt><tt class="descclassname"> arg (=-1)</tt><a class="headerlink" href="#cmdoption-gearmand--keepalive-count" title="Permalink to this definition">¶</a></dt>
+<dd><p>If keepalive is enabled, set the value for TCP_KEEPCNT for systems that support it. A value of -1 means that either the system does not support it or an error occurred when trying to retrieve the default value.</p>
+</dd></dl>
+
+<p><strong>HTTP:</strong></p>
+<dl class="option">
+<dt id="cmdoption-gearmand--http-port">
+<tt class="descname">--http-port</tt><tt class="descclassname"> arg (=8080)</tt><a class="headerlink" href="#cmdoption-gearmand--http-port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port to listen on.</p>
+</dd></dl>
+
+<p><strong>sqlite</strong></p>
+<dl class="option">
+<dt id="cmdoption-gearmand--libsqlite3-db">
+<tt class="descname">--libsqlite3-db</tt><tt class="descclassname"> arg</tt><a class="headerlink" href="#cmdoption-gearmand--libsqlite3-db" title="Permalink to this definition">¶</a></dt>
+<dd><p>Database file to use.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand--libsqlite3-table">
+<tt class="descname">--libsqlite3-table</tt><tt class="descclassname"> arg (=gearman_queue)</tt><a class="headerlink" href="#cmdoption-gearmand--libsqlite3-table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Table to use.</p>
+</dd></dl>
+
+<p><strong>Memcached(libmemcached)</strong></p>
+<dl class="option">
+<dt id="cmdoption-gearmand--libmemcached-servers">
+<tt class="descname">--libmemcached-servers</tt><tt class="descclassname"> arg</tt><a class="headerlink" href="#cmdoption-gearmand--libmemcached-servers" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of Memcached servers to use.</p>
+</dd></dl>
+
+<p><strong>Drizzle/MySQL(libdrizzle)</strong></p>
+<dl class="option">
+<dt id="cmdoption-gearmand--libdrizzle-host">
+<tt class="descname">--libdrizzle-host</tt><tt class="descclassname"> arg</tt><a class="headerlink" href="#cmdoption-gearmand--libdrizzle-host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Host of server.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand--libdrizzle-port">
+<tt class="descname">--libdrizzle-port</tt><tt class="descclassname"> arg</tt><a class="headerlink" href="#cmdoption-gearmand--libdrizzle-port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port of server. (by default Drizzle)</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand--libdrizzle-uds">
+<tt class="descname">--libdrizzle-uds</tt><tt class="descclassname"> arg</tt><a class="headerlink" href="#cmdoption-gearmand--libdrizzle-uds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unix domain socket for server.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand--libdrizzle-user">
+<tt class="descname">--libdrizzle-user</tt><tt class="descclassname"> arg</tt><a class="headerlink" href="#cmdoption-gearmand--libdrizzle-user" title="Permalink to this definition">¶</a></dt>
+<dd><p>User name for authentication.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand--libdrizzle-password">
+<tt class="descname">--libdrizzle-password</tt><tt class="descclassname"> arg</tt><a class="headerlink" href="#cmdoption-gearmand--libdrizzle-password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Password for authentication.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand--libdrizzle-db">
+<tt class="descname">--libdrizzle-db</tt><tt class="descclassname"> arg</tt><a class="headerlink" href="#cmdoption-gearmand--libdrizzle-db" title="Permalink to this definition">¶</a></dt>
+<dd><p>Schema/Database to use.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand--libdrizzle-table">
+<tt class="descname">--libdrizzle-table</tt><tt class="descclassname"> arg</tt><a class="headerlink" href="#cmdoption-gearmand--libdrizzle-table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Table to use.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand--libdrizzle-mysql">
+<tt class="descname">--libdrizzle-mysql</tt><tt class="descclassname"> arg</tt><a class="headerlink" href="#cmdoption-gearmand--libdrizzle-mysql" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use MySQL protocol.</p>
+</dd></dl>
+
+<p><strong>Postgres</strong></p>
+<dl class="option">
+<dt id="cmdoption-gearmand--libpq-conninfo">
+<tt class="descname">--libpq-conninfo</tt><tt class="descclassname"> arg</tt><a class="headerlink" href="#cmdoption-gearmand--libpq-conninfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>PostgreSQL connection information string.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand--libpq-table">
+<tt class="descname">--libpq-table</tt><tt class="descclassname"> arg (=queue)</tt><a class="headerlink" href="#cmdoption-gearmand--libpq-table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Table to use.</p>
+</dd></dl>
+
+<p><strong>tokyocabinet</strong></p>
+<dl class="option">
+<dt id="cmdoption-gearmand--libtokyocabinet-file">
+<tt class="descname">--libtokyocabinet-file</tt><tt class="descclassname"> arg</tt><a class="headerlink" href="#cmdoption-gearmand--libtokyocabinet-file" title="Permalink to this definition">¶</a></dt>
+<dd><p>File name of the database. [see: man tcadb, tcadbopen() for name guidelines]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearmand--libtokyocabinet-optimize">
+<tt class="descname">--libtokyocabinet-optimize</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption-gearmand--libtokyocabinet-optimize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optimize database on open. [default=true]</p>
+</dd></dl>
+
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Gearman provides a generic application framework to farm out work to other machines or processes that are better suited to do the work. It allows you to do work in parallel, to load balance processing, and to call functions between languages. It can be used in a variety of applications, from high-availability web sites to the transport of database replication events. In other words, it is the nervous system for how distributed processing communicates. A few strong points about Gearman:</p>
+<ul class="simple">
+<li>Open Source - It&#8217;s free! (in both meanings of the word) Gearman has an active open source community that is easy to get involved with if you need help or want to contribute.</li>
+<li>Multi-language - There are interfaces for a number of languages, and this list is growing. You also have the option to write heterogeneous applications with clients submitting work in one language and workers performing that work in another.</li>
+<li>Flexible - You are not tied to any specific design pattern. You can quickly put together distributed applications using any model you choose, one of those options being Map/Reduce.</li>
+<li>Fast - Gearman has a simple protocol and interface with a new optimized server in C to minimize your application overhead.</li>
+<li>Embeddable - Since Gearman is fast and lightweight, it is great for applications of all sizes. It is also easy to introduce into existing applications with minimal overhead.</li>
+<li>No single point of failure - Gearman can not only help scale systems, but can do it in a fault tolerant way.</li>
+</ul>
+<div class="section" id="thread-model">
+<h3>Thread Model<a class="headerlink" href="#thread-model" title="Permalink to this headline">¶</a></h3>
+<p>The -t option to gearmand allows you to specify multiple I/O threads, this is enabled by default. There are currently three types of threads in the job server:</p>
+<p>Listening and management thread - only one
+I/O thread - can have many
+Processing thread - only one</p>
+<p>When no -t option is given or -t 0 is given, all of three thread types happen within a single thread. When -t 1 is given, there is a thread for listening/management and a thread for I/O and processing. When -t 2 is given, there is a thread for each type of thread above. For all -t option values above 2, more I/O threads are created.</p>
+<p>The listening and management thread is mainly responsible for accepting new connections and assigning those connections to an I/O thread (if there are many). It also coordinates startup and shutdown within the server. This thread will have an instance of libevent for managing socket events and signals on an internal pipe. This pipe is used to wakeup the thread or to coordinate shutdown.</p>
+<p>The I/O thread is responsible for doing the read and write system calls on the sockets and initial packet parsing. Once the packet has been parsed it it put into an asynchronous queue for the processing thread (each thread has it&#8217;s own queue so there is very little contention). Each I/O thread has it&#8217;s own instance of libevent for managing socket events and signals on an internal pipe like the listening thread.</p>
+<p>The processing thread should have no system calls within it (except for the occasional brk() for more memory), and manages the various lists and hash tables used for tracking unique keys, job handles, functions, and job queues. All packets that need to be sent back to connections are put into an asynchronous queue for the I/O thread. The I/O thread will pick these up and send them back over the connected socket. All packets flow through the processing thread since it contains the information needed to process the packets. This is due to the complex nature of the various lists and hash tables. If multiple threads were modifying them the locking overhead would most likely cause worse performance than having it in a single thread (and would also complicate the code). In the future more work may be pushed to the I/O threads, and the processing thread can retain minimal functionality to manage those tables and lists. So far this has not been a significant bottleneck, a 16 core Intel machine is able to process upwards of 50k jobs per second.</p>
+<p>For thread safety to work when UUID are generated, you must be running the uuidd daemon.</p>
+</div>
+<div class="section" id="persistent-queues">
+<h3>Persistent Queues<a class="headerlink" href="#persistent-queues" title="Permalink to this headline">¶</a></h3>
+<p>Inside the Gearman job server, all job queues are stored in memory. This means if a server restarts or crashes with pending jobs, they will be lost and are never run by a worker. Persistent queues were added to allow background jobs to be stored in an external durable queue so they may live between server restarts and crashes. The persistent queue is only enabled for background jobs because foreground jobs have an attached client. If a job server goes away, the client can detect this and restart the foreground job somewhere else (or report an error back to the original caller). Background jobs on the other hand have no attached client and are simply expected to be run when submitted.</p>
+<p>The persistent queue works by calling a module callback function right before putting a new job in the internal queue for pending jobs to be run. This allows the module to store the job about to be run in some persistent way so that it can later be replayed during a restart. Once it is stored through the module, the job is put onto the active runnable queue, waking up available workers if needed. Once the job has been successfully completed by a worker, another module callback function is called to notify the module the job is done and can be removed. If a job server crashes or is restarted between these two calls for a job, the jobs are reloaded during the next job server start. When the job server starts up, it will call a replay callback function in the module to provide a list of all jobs that were not complete. This is used to populate the internal memory queue of jobs to be run. Once this replay is complete, the job server finishes its initialization and the jobs are now runnable once workers connect (the queue should be in the same state as when it crashed). These jobs are removed from the persistent queue when completed as normal. NOTE: Deleting jobs from the persistent queue storage will not remove them from the in-memory queue while the server is running.</p>
+<p>The queues are implemented using a modular interface so it is easy to add new data stores for the persistent queue.</p>
+<p>A persistent queue module is enabled by passing the -q or –queue-type option to gearmand. Run gearmand –help to see which queue modules are supported on your system. If you are missing options for one you would like to use, you will need to install any dependencies and then recompile the gearmand package.</p>
+<div class="section" id="extended-protocols">
+<h4>Extended Protocols<a class="headerlink" href="#extended-protocols" title="Permalink to this headline">¶</a></h4>
+<p>The protocol plugin interface allows you to take over the packet send and receive functions, allowing you to pack the buffers as required by the protocol. The core read and write functions can (and should) be used by the protocol plugin.</p>
+</div>
+</div>
+<div class="section" id="http">
+<h3>HTTP<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h3>
+<p>This protocol plugin allows you to map HTTP requests to Gearman jobs. It only provides client job submission currently, but it may be extended to support other request types in the future. The plugin can handle both GET and POST data, the latter being used to send a workload to the job server. The URL being requested is translated into the function being called.</p>
+<p>For example, the request:</p>
+<div class="highlight-python"><div class="highlight"><pre>POST /reverse HTTP/1.1
+Content-Length: 12
+
+Hello world!
+</pre></div>
+</div>
+<p>Is translated into a job submission request for the function “reverse” and workload “Hello world!”. This will respond with:</p>
+<div class="highlight-python"><div class="highlight"><pre>HTTP/1.0 200 OK
+X-Gearman-Job-Handle: H:lap:4
+Content-Length: 12
+Server: Gearman/0.8
+
+!dlrow olleH
+</pre></div>
+</div>
+<p>The following headers can be passed to change the behavior of the job:</p>
+<div class="highlight-python"><div class="highlight"><pre>* X-Gearman-Unique: &lt;unique key&gt;
+* X-Gearman-Background: true
+* X-Gearman-Priority: &lt;high|low&gt;
+</pre></div>
+</div>
+<p>For example, to run a low priority background job, the following request can be sent:</p>
+<div class="highlight-python"><div class="highlight"><pre>POST /reverse HTTP/1.1
+Content-Length: 12
+X-Gearman-Background: true
+X-Gearman-Priority: low
+
+Hello world!
+</pre></div>
+</div>
+<p>The response for this request will not have any data associated with it since it was a background job:</p>
+<div class="highlight-python"><div class="highlight"><pre>HTTP/1.0 200 OK
+X-Gearman-Job-Handle: H:lap:6
+Content-Length: 0
+Server: Gearman/0.8
+</pre></div>
+</div>
+<p>The HTTP protocol should be considered experimental.</p>
+</div>
+</div>
+<div class="section" id="home">
+<h2>HOME<a class="headerlink" href="#home" title="Permalink to this headline">¶</a></h2>
+<p>To find out more information please check:
+<a class="reference external" href="http://gearman.info/">http://gearman.info/</a></p>
+</div>
+<div class="section" id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><em class="manpage">gearman(1)</em> <em class="manpage">gearadmin(1)</em> <em class="manpage">libgearmand(3)</em></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Server Options</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a><ul>
+<li><a class="reference internal" href="#thread-model">Thread Model</a></li>
+<li><a class="reference internal" href="#persistent-queues">Persistent Queues</a><ul>
+<li><a class="reference internal" href="#extended-protocols">Extended Protocols</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#http">HTTP</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#home">HOME</a></li>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="architecture.html"
+                        title="previous chapter">Architecture</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gearmand/queues.html"
+                        title="next chapter">Durable Queues</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gearmand/queues.html" title="Durable Queues"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="architecture.html" title="Architecture"
+             >previous</a> |</li>
+        <li><a href="index.html">Gearmand 6668028 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

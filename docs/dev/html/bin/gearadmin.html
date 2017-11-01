@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Gearman Admin Tool &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="../index.html" />
+    <link rel="next" title="Libgearman" href="../libgearman/index.html" />
+    <link rel="prev" title="Gearman Command Line Tool" href="gearman.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../libgearman/index.html" title="Libgearman"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gearman.html" title="Gearman Command Line Tool"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="gearman-admin-tool">
+<h1>Gearman Admin Tool<a class="headerlink" href="#gearman-admin-tool" title="Permalink to this headline">¶</a></h1>
+<p>Run Administrative commands against a server.</p>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<dl class="option">
+<dt id="cmdoption-gearadmin--help">
+<tt class="descname">--help</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption-gearadmin--help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provice help about the program.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearadmin--create-function">
+<tt class="descname">--create-function</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption-gearadmin--create-function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a function from the server.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearadmin-h">
+<tt class="descname">-h</tt><tt class="descclassname"> [ --host ] arg (=localhost)i</tt><a class="headerlink" href="#cmdoption-gearadmin-h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect to the host</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearadmin-p">
+<tt class="descname">-p</tt><tt class="descclassname"> [ --port ] arg (=4730)</tt><a class="headerlink" href="#cmdoption-gearadmin-p" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port number or service to use for connection</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearadmin--drop-function">
+<tt class="descname">--drop-function</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption-gearadmin--drop-function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Drop a function from the server.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearadmin--server-version">
+<tt class="descname">--server-version</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption-gearadmin--server-version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch the version number for the server.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearadmin--server-verbose">
+<tt class="descname">--server-verbose</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption-gearadmin--server-verbose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch the verbose setting for the server.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearadmin--status">
+<tt class="descname">--status</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption-gearadmin--status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Status for the server.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-gearadmin--workers">
+<tt class="descname">--workers</tt><tt class="descclassname"></tt><a class="headerlink" href="#cmdoption-gearadmin--workers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Workers for the server.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Command line tool for manipulating gearmand servers.</p>
+</div>
+<div class="section" id="home">
+<h2>HOME<a class="headerlink" href="#home" title="Permalink to this headline">¶</a></h2>
+<p>To find out more information please check:
+<a class="reference external" href="http://gearman.info/">http://gearman.info/</a></p>
+</div>
+<div class="section" id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><em class="manpage">gearmand(8)</em> <em class="manpage">libgearman(3)</em></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Gearman Admin Tool</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#home">HOME</a></li>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gearman.html"
+                        title="previous chapter">Gearman Command Line Tool</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../libgearman/index.html"
+                        title="next chapter">Libgearman</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../libgearman/index.html" title="Libgearman"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gearman.html" title="Gearman Command Line Tool"
+             >previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

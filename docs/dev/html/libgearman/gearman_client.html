@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Creating a Gearman Client Connections &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="../index.html" />
+    <link rel="up" title="Libgearman" href="index.html" />
+    <link rel="next" title="Adding Servers" href="gearman_client_add_server.html" />
+    <link rel="prev" title="libgearman examples" href="examples.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gearman_client_add_server.html" title="Adding Servers"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="examples.html" title="libgearman examples"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Libgearman</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="creating-a-gearman-client-connections">
+<h1>Creating a Gearman Client Connections<a class="headerlink" href="#creating-a-gearman-client-connections" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p>#include &lt;libgearman/gearman.h&gt;</p>
+<dl class="function">
+<dt id="c.gearman_client_create">
+<a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a> *<tt class="descname">gearman_client_create</tt><big>(</big><a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a><em>&nbsp;*client</em><big>)</big><a class="headerlink" href="#c.gearman_client_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_client_clone">
+<a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a> *<tt class="descname">gearman_client_clone</tt><big>(</big><a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a><em>&nbsp;*client</em>, const <a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a><em>&nbsp;*from</em><big>)</big><a class="headerlink" href="#c.gearman_client_clone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="c.gearman_client_free">
+void <tt class="descname">gearman_client_free</tt><big>(</big><a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st">gearman_client_st</a><em>&nbsp;*client</em><big>)</big><a class="headerlink" href="#c.gearman_client_free" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Link with -lgearman</p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#c.gearman_client_create" title="gearman_client_create"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_create()</span></tt></a> is used to create a c:type:<cite>gearman_client_st</cite>  structure that will then
+be used by other libgearman client functions to communicate with the server. You
+should either pass a statically declared <a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_client_st</span></tt></a>  to <a class="reference internal" href="#c.gearman_client_create" title="gearman_client_create"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_create()</span></tt></a> or
+a NULL. If a NULL passed in then a structure is allocated for you.</p>
+<p><a class="reference internal" href="#c.gearman_client_clone" title="gearman_client_clone"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_clone()</span></tt></a> is similar to <a class="reference internal" href="#c.gearman_client_create" title="gearman_client_create"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_create()</span></tt></a> but it copies the
+defaults and list of servers from the source <a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_client_st</span></tt></a> . If you pass a null as
+the argument for the source to clone, it is the same as a call to gearman_client_create.
+If the destination argument is NULL a <a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_client_st</span></tt></a>  will be allocated for you.</p>
+<p>To clean up memory associated with a <a class="reference internal" href="gearman_client_st.html#c.gearman_client_st" title="gearman_client_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_client_st</span></tt></a>  structure you should pass
+it to gearman_client_free when you are finished using it. <a class="reference internal" href="#c.gearman_client_free" title="gearman_client_free"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_free()</span></tt></a> is
+the only way to make sure all memory is deallocated when you finish using
+the structure.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">You may wish to avoid using <a class="reference internal" href="#c.gearman_client_create" title="gearman_client_create"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_create()</span></tt></a> or <a class="reference internal" href="#c.gearman_client_clone" title="gearman_client_clone"><tt class="xref c c-func docutils literal"><span class="pre">gearman_client_clone()</span></tt></a> with a
+stack based allocation, ie the first parameter. The most common issues related to ABI safety involve
+stack allocated structures.</p>
+</div>
+</div>
+<div class="section" id="return-value">
+<h2>RETURN VALUE<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#c.gearman_client_create" title="gearman_client_create"><tt class="xref c c-type docutils literal"><span class="pre">gearman_client_create</span></tt></a> returns a pointer to the gearman_client_st
+that was created (or initialized). On an allocation failure, it returns
+NULL.</p>
+<p><a class="reference internal" href="#c.gearman_client_clone" title="gearman_client_clone"><tt class="xref c c-type docutils literal"><span class="pre">gearman_client_clone</span></tt></a> returns a pointer to the gearman_client_st that was created
+(or initialized). On an allocation failure, it returns NULL.</p>
+</div>
+<div class="section" id="home">
+<h2>HOME<a class="headerlink" href="#home" title="Permalink to this headline">¶</a></h2>
+<p>To find out more information please check:
+<a class="reference external" href="http://gearman.info/">http://gearman.info/</a></p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><em class="manpage">gearmand(8)</em> <em class="manpage">libgearman(3)</em> <em class="manpage">gearman_strerror(3)</em> <em class="manpage">gearman_client_st(3)</em></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Creating a Gearman Client Connections</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#return-value">RETURN VALUE</a></li>
+<li><a class="reference internal" href="#home">HOME</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="examples.html"
+                        title="previous chapter">libgearman examples</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gearman_client_add_server.html"
+                        title="next chapter">Adding Servers</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gearman_client_add_server.html" title="Adding Servers"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="examples.html" title="libgearman examples"
+             >previous</a> |</li>
+        <li><a href="../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Libgearman</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

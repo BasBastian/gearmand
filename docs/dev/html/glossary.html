@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Glossary &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="index.html" />
+    <link rel="next" title="Architecture" href="architecture.html" />
+    <link rel="prev" title="How to report a bug" href="how_to_report_a_bug.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="architecture.html" title="Architecture"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="how_to_report_a_bug.html" title="How to report a bug"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Gearmand 6668028 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="glossary">
+<span id="id1"></span><h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h1>
+<dl class="glossary docutils">
+<dt id="term-client">client</dt>
+<dd>A client submits work in the form of a task, <a class="reference internal" href="libgearman/gearman_task_st.html#c.gearman_task_st" title="gearman_task_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_task_st</span></tt></a> to a Gearman server. Client are represented by <a class="reference internal" href="libgearman/gearman_client_st.html#c.gearman_client_st" title="gearman_client_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_client_st</span></tt></a>.</dd>
+<dt id="term-worker">worker</dt>
+<dd>Responds to tasks that originate from a client. A Gearman server transports the requests.</dd>
+<dt id="term-task">task</dt>
+<dd>Client requests, they are represented by <a class="reference internal" href="libgearman/gearman_task_st.html#c.gearman_task_st" title="gearman_task_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_task_st</span></tt></a>. Each task is assigned a job handle, <a class="reference internal" href="libgearman/gearman_job_handle_t.html#c.gearman_job_handle_t" title="gearman_job_handle_t"><tt class="xref c c-type docutils literal"><span class="pre">gearman_job_handle_t</span></tt></a>, by the server.</dd>
+<dt id="term-job">job</dt>
+<dd>A job represents a task once it is sent to worker. It is represented as <a class="reference internal" href="libgearman/gearman_job_st.html#c.gearman_job_st" title="gearman_job_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_job_st</span></tt></a>.</dd>
+<dt id="term-function">function</dt>
+<dd>A &#8220;subprogram&#8221; that takes a set of parameters and returns a result (or just just a status). Functions are defined for workers.</dd>
+<dt id="term-reducer">reducer</dt>
+<dd>A function that takes a piece of data from mapper and returns a value that will be sent to an aggregator function. Any function can be a reducer.</dd>
+<dt id="term-mapper">mapper</dt>
+<dd>Mapper functions take incoming data and &#8220;map&#8221; it out to hosts. The &#8220;map&#8221; typically is a function that splits up the incoming work. The function that receives the mapped work is the reducer. Work is collected from the reducer and given to an aggregator function.</dd>
+<dt id="term-aggregator">aggregator</dt>
+<dd>A function which takes data and compiles it into a single return value. Aggregator functions are defined by <a class="reference internal" href="libgearman/gearman_worker_define_function.html#c.gearman_aggregator_fn" title="gearman_aggregator_fn"><tt class="xref c c-type docutils literal"><span class="pre">gearman_aggregator_fn</span></tt></a>.</dd>
+<dt id="term-context">context</dt>
+<dd>Context are user supplied variables/structures that can be attached to <a class="reference internal" href="libgearman/gearman_worker_st.html#c.gearman_worker_st" title="gearman_worker_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_worker_st</span></tt></a>, <a class="reference internal" href="libgearman/gearman_client_st.html#c.gearman_client_st" title="gearman_client_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_client_st</span></tt></a>, <a class="reference internal" href="libgearman/gearman_task_st.html#c.gearman_task_st" title="gearman_task_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_task_st</span></tt></a>, <a class="reference internal" href="libgearman/gearman_job_st.html#c.gearman_job_st" title="gearman_job_st"><tt class="xref c c-type docutils literal"><span class="pre">gearman_job_st</span></tt></a>, and similar objects that are passed as opaque objects that the library will ignore (i.e. they are there for developers to use to store state).</dd>
+</dl>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="how_to_report_a_bug.html"
+                        title="previous chapter">How to report a bug</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="architecture.html"
+                        title="next chapter">Architecture</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="architecture.html" title="Architecture"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="how_to_report_a_bug.html" title="How to report a bug"
+             >previous</a> |</li>
+        <li><a href="index.html">Gearmand 6668028 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

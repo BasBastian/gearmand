@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Postgres &mdash; Gearmand 6668028 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '6668028',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Gearmand 6668028 documentation" href="../../index.html" />
+    <link rel="up" title="Durable Queues" href="../queues.html" />
+    <link rel="next" title="SQLite" href="sqlite.html" />
+    <link rel="prev" title="MySQL" href="mysql.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="sqlite.html" title="SQLite"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mysql.html" title="MySQL"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="../queues.html" accesskey="U">Durable Queues</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="postgres">
+<h1>Postgres<a class="headerlink" href="#postgres" title="Permalink to this headline">¶</a></h1>
+<p>The current schema, as of .21 is:</p>
+<div class="highlight-python"><div class="highlight"><pre>CREATE TABLE &lt;table&gt; ( unique_key VARCHAR(GEARMAN_UNIQUE_SIZE),
+                       function_name VARCHAR(255),
+                       priority INTEGER,
+                       data BYTEA,
+                       when_to_run INTEGER,
+                       UNIQUE (unique_key, function_name));
+</pre></div>
+</div>
+<p>To start gearmand edit /etc/default/gearman-job-server to include:</p>
+<div class="highlight-python"><div class="highlight"><pre>export PGHOST=TheHostname
+export PGPORT=5432
+export PGUSER=gearman
+export PGPASSWORD=ThePassword
+export PGDATABASE=gearman
+PARAMS=&quot;--verbose -q libpq --libpq-table=gearmanqueue1 --verbose&quot;
+</pre></div>
+</div>
+<p>This is Debian specific so you will need to adapt it to your distribution.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mysql.html"
+                        title="previous chapter">MySQL</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="sqlite.html"
+                        title="next chapter">SQLite</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="sqlite.html" title="SQLite"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mysql.html" title="MySQL"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Gearmand 6668028 documentation</a> &raquo;</li>
+          <li><a href="../queues.html" >Durable Queues</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2014, Data Differential, http://www.datadifferential.com/.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
